@@ -235,6 +235,15 @@
   updateStatus();
   setInterval(updateStatus, 60000);
 
+  // ---- header height (used to position mobile nav panel below header) ----
+  var topbarEl = document.querySelector('.topbar');
+  function updateHeaderHeight(){
+    if(!topbarEl) return;
+    document.documentElement.style.setProperty('--header-h', topbarEl.offsetHeight + 'px');
+  }
+  updateHeaderHeight();
+  window.addEventListener('resize', updateHeaderHeight);
+
   // ---- mobile hamburger menu ----
   var menuToggle = document.getElementById('menuToggle');
   var navlinks = document.getElementById('navlinks');
