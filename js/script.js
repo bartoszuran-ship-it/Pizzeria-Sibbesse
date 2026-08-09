@@ -212,4 +212,56 @@
   } else {
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
   }
+
+  // ---- opening-hours status badge (Mo-So 12:00-22:00) ----
+  var OPEN_HOUR = 12, CLOSE_HOUR = 22;
+  function updateStatus(){
+    var badge = document.getElementById('statusBadge');
+    if(!badge) return;
+    var now = new Date();
+    var hour = now.getHours() + now.getMinutes()/60;
+    var isOpen = hour >= OPEN_HOUR && hour < CLOSE_HOUR;
+    var textEl = badge.querySelector('.status-text');
+    var extraEl = badge.querySelector('.status-extra');
+    badge.classList.toggle('is-closed', !isOpen);
+    if(isOpen){
+      textEl.textContent = 'Geöffnet';
+      extraEl.textContent = ' · bis ' + CLOSE_HOUR + ':00 Uhr';
+    } else {
+      textEl.textContent = 'Geschlossen';
+      extraEl.textContent = ' · ab ' + OPEN_HOUR + ':00 Uhr';
+    }
+  }
+  updateStatus();
+  setInterval(updateStatus, 60000);
+
+  // ---- mobile hamburger menu ----
+  var menuToggle = document.getElementById('menuToggle');
+  var navlinks = document.getElementById('navlinks');
+  var navScrim = document.getElementById('navScrim');
+  if(menuToggle && navlinks && navScrim){
+    function closeMenu(){
+      menuToggle.setAttribute('aria-expanded','false');
+      navlinks.classList.remove('is-open');
+      navScrim.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+    function openMenu(){
+      menuToggle.setAttribute('aria-expanded','true');
+      navlinks.classList.add('is-open');
+      navScrim.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    menuToggle.addEventListener('click', function(){
+      var isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      isOpen ? closeMenu() : openMenu();
+    });
+    navScrim.addEventListener('click', closeMenu);
+    navlinks.addEventListener('click', function(e){
+      if(e.target.tagName === 'A') closeMenu();
+    });
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 860) closeMenu();
+    });
+  }
 })();
