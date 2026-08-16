@@ -688,9 +688,25 @@
   }
   @media (max-width:760px){.reviews-strip{grid-template-columns:1fr;}}
   .review{background:var(--bg-1);padding:1.6rem;}
+  .review-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;}
+  .review-avatar{
+    flex-shrink:0;
+    width:2.4rem;height:2.4rem;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Anton';
+    font-size:.9rem;
+    letter-spacing:.02em;
+    color:#fff9f2;
+  }
+  .review-avatar.av-1{background:linear-gradient(135deg, var(--ember), var(--ember-soft));}
+  .review-avatar.av-2{background:linear-gradient(135deg, var(--crust), #b98527);}
+  .review-avatar.av-3{background:linear-gradient(135deg, #a34a5e, var(--ember));}
+  .review-who{display:flex;flex-direction:column;min-width:0;}
+  .review-name{font-size:.9rem;font-weight:700;color:var(--ink);}
+  .review-date{font-size:.74rem;color:var(--ink-faint);}
   .review .stars{color:var(--crust-soft);letter-spacing:.1em;font-size:.9rem;}
   .review p{margin:.7rem 0 0;font-size:.95rem;color:var(--ink);}
-  .review cite{display:block;margin-top:.9rem;font-style:normal;font-size:.78rem;color:var(--ink-faint);}
 
   /* ---------- info / footer ---------- */
   .info-grid{
@@ -733,6 +749,39 @@
   }
   .map-cta:hover{background:var(--ember-soft);}
   @media (max-width:600px){.map-block{aspect-ratio:4/3;}}
+
+  /* ---------- closing CTA ---------- */
+  .closing-cta{
+    background:linear-gradient(120deg, var(--ember) 0%, #c7420f 100%);
+    text-align:center;
+    padding:clamp(3rem,7vw,5rem) clamp(1.2rem,6vw,4rem);
+  }
+  .closing-cta-inner{max-width:34rem;margin:0 auto;}
+  .closing-cta h2{color:#fff9f2;font-size:clamp(2rem,5vw,2.8rem);margin:0;}
+  .closing-cta p{color:rgba(255,248,240,.88);font-size:1.02rem;margin:.9rem 0 2rem;}
+  .closing-cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem;}
+  .btn-light,.btn-outline-light{
+    display:inline-flex;align-items:center;gap:.55rem;
+    text-decoration:none;
+    font-weight:700;
+    font-size:.95rem;
+    letter-spacing:.02em;
+    padding:.95rem 1.7rem;
+    border-radius:var(--radius);
+    transition:transform .15s, background .15s, border-color .15s;
+  }
+  .btn-light{
+    background:#fff9f2;
+    color:var(--ember);
+    box-shadow:0 10px 26px -10px rgba(0,0,0,.35);
+  }
+  .btn-light:hover{transform:translateY(-2px);background:#fff;}
+  .btn-outline-light{
+    background:transparent;
+    color:#fff9f2;
+    border:1px solid rgba(255,248,240,.5);
+  }
+  .btn-outline-light:hover{border-color:#fff9f2;background:rgba(255,248,240,.1);}
 
   footer{
     border-top:1px solid var(--line);
