@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pizzeria Sibbesse — Holzofenpizza &amp; Döner in Sibbesse</title>
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="shortcut icon" href="assets/favicon.ico">
@@ -25,14 +24,10 @@
 
 <header class="topbar">
   <a href="#top" class="brandmark">
-    <svg class="logo-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="32" cy="32" r="30" fill="var(--bg-2)" stroke="var(--line)" stroke-width="2"/>
-      <path fill="var(--crust)" d="M16 50 V33 A16 16 0 0 1 48 33 V50 Z"/>
-      <path fill="var(--bg-2)" d="M21 50 V34 A11 11 0 0 1 43 34 V50 Z"/>
-      <path fill="var(--ember)" d="M32 37 C29 41 27 43.5 27 47 C27 50.3 29.2 52 32 52 C34.8 52 37 50.3 37 47 C37 43.5 35 41 32 37 Z"/>
-      <path fill="var(--ember-soft)" d="M32 43 C30.7 45 30 46.3 30 48 C30 49.4 30.9 50.3 32 50.3 C33.1 50.3 34 49.4 34 48 C34 46.3 33.3 45 32 43 Z"/>
-    </svg>
-    Pizzeria Sibbesse
+    <picture>
+      <source srcset="assets/logo.webp" type="image/webp">
+      <img class="logo-mark" src="assets/logo.png" alt="Pizzeria Sibbesse" width="900" height="507">
+    </picture>
   </a>
   <span class="status-badge" id="statusBadge" aria-live="polite">
     <span class="status-dot"></span>

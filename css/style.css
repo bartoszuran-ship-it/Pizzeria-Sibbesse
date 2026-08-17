@@ -80,15 +80,12 @@
     border-bottom:1px solid var(--line);
   }
   .brandmark{
-    display:flex;align-items:center;gap:.6rem;
-    font-family:'Anton',sans-serif;
-    font-size:1.15rem;
-    letter-spacing:.03em;
-    text-transform:uppercase;
+    display:flex;align-items:center;
     text-decoration:none;
     white-space:nowrap;
+    flex-shrink:0;
   }
-  .logo-mark{width:28px;height:28px;flex-shrink:0;display:block;}
+  .logo-mark{height:44px;width:auto;display:block;}
   .navlinks{
     display:flex;gap:1.4rem;
     list-style:none;margin:0;padding:0;
@@ -899,8 +896,7 @@
   /* ---------- mobile refinements ---------- */
   @media (max-width:480px){
     .topbar{padding:.7rem .9rem;gap:.5rem;}
-    .brandmark{font-size:.92rem;gap:.4rem;}
-    .logo-mark{width:22px;height:22px;}
+    .logo-mark{height:34px;}
     .callbtn{font-size:.7rem;padding:.5rem .75rem;gap:.35rem;}
     .callbtn svg{width:13px;height:13px;}
 
