@@ -12,6 +12,16 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="heatShimmer" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="2" seed="7" result="noise">
+        <animate attributeName="baseFrequency" dur="5s" values="0.012 0.09;0.016 0.11;0.012 0.09" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="9"/>
+    </filter>
+  </defs>
+</svg>
 
 <header class="topbar">
   <a href="#top" class="brandmark">
@@ -53,7 +63,7 @@
             <span class="dot"></span>
             <span class="eyebrow">Lange Halbe 2 · 31079 Sibbesse</span>
           </div>
-          <h1 class="display">Aus dem Holzofen<br><span>direkt zu dir.</span></h1>
+          <h1 class="display"><span class="rotator" id="heroRotator">Holzofen-Pizza</span><br><span class="accent">direkt zu dir.</span></h1>
           <p class="hero-sub">Pizza, Döner, Pide und mehr aus Sibbesse — täglich frisch belegt, im Steinofen gebacken und heiß an deine Tür geliefert. Mittwoch ist Pizza-Tag.</p>
           <div class="hero-actions">
             <a class="btn-primary" href="tel:+4950653280109">
@@ -71,7 +81,7 @@
         </div>
         <div class="hero-visual">
           <div class="hero-frame-back">
-            <img src="assets/images/pizzeria-02.jpeg" alt="Frisch gebackene Pizza mit Salami und Basilikum" loading="eager">
+            <img src="assets/images/pizzeria-10.jpeg" alt="Döner frisch vom Spieß" loading="eager">
           </div>
           <div class="hero-frame">
             <img src="assets/images/pizzeria-03.jpeg" alt="Pizza wird aus dem Holzofen geholt" loading="eager">
@@ -125,10 +135,10 @@
         <p>Mitten in Sibbesse backen wir Pizzen so, wie es sich gehört: dünner Boden, ordentlich Käse, Zutaten, die man schmeckt. Dazu Döner, Pide, Nudeln und Schnitzel für alle, die keine Pizza wollen — und für alle, die nicht wählen können, gibt's die Kindertüte.</p>
         <p>Bestellen für zu Hause, das Büro oder die Feuerwehrwache nebenan — Firmen und Feuerwehr liefern wir kostenfrei.</p>
         <div class="story-stats">
-          <div class="story-stat"><span class="n mono">83</span><span class="l">Gerichte auf der Karte</span></div>
-          <div class="story-stat"><span class="n mono">28cm</span><span class="l">Große Pizza im Holzofen</span></div>
-          <div class="story-stat"><span class="n mono">7/7</span><span class="l">Tage geöffnet</span></div>
-          <div class="story-stat"><span class="n mono">12km</span><span class="l">Lieferradius</span></div>
+          <div class="story-stat"><span class="n mono count" data-target="83" data-suffix="">0</span><span class="l">Gerichte auf der Karte</span></div>
+          <div class="story-stat"><span class="n mono count" data-target="28" data-suffix="cm">0cm</span><span class="l">Große Pizza im Holzofen</span></div>
+          <div class="story-stat"><span class="n mono count" data-target="7" data-suffix="/7">0/7</span><span class="l">Tage geöffnet</span></div>
+          <div class="story-stat"><span class="n mono count" data-target="12" data-suffix="km">0km</span><span class="l">Lieferradius</span></div>
         </div>
       </div>
       <div class="oven">
@@ -139,6 +149,8 @@
   </section>
 
   <section id="favoriten" aria-label="Beliebte Gerichte">
+    <div class="crust-edge crust-edge-top" aria-hidden="true"><svg viewBox="0 0 400 20" preserveAspectRatio="none"><path d="M0,20 Q10,0 20,20 Q30,0 40,20 Q50,0 60,20 Q70,0 80,20 Q90,0 100,20 Q110,0 120,20 Q130,0 140,20 Q150,0 160,20 Q170,0 180,20 Q190,0 200,20 Q210,0 220,20 Q230,0 240,20 Q250,0 260,20 Q270,0 280,20 Q290,0 300,20 Q310,0 320,20 Q330,0 340,20 Q350,0 360,20 Q370,0 380,20 Q390,0 400,20 V20 H0 Z" fill="var(--bg-1)"/></svg></div>
+    <div class="crust-edge crust-edge-bottom" aria-hidden="true"><svg viewBox="0 0 400 20" preserveAspectRatio="none"><path d="M0,20 Q10,0 20,20 Q30,0 40,20 Q50,0 60,20 Q70,0 80,20 Q90,0 100,20 Q110,0 120,20 Q130,0 140,20 Q150,0 160,20 Q170,0 180,20 Q190,0 200,20 Q210,0 220,20 Q230,0 240,20 Q250,0 260,20 Q270,0 280,20 Q290,0 300,20 Q310,0 320,20 Q330,0 340,20 Q350,0 360,20 Q370,0 380,20 Q390,0 400,20 V20 H0 Z" fill="var(--bg-1)"/></svg></div>
     <div class="section-inner">
       <div class="section-head">
         <div>
@@ -154,7 +166,7 @@
         </a>
         <a class="highlight-card reveal" href="#doener">
           <img src="assets/images/pizzeria-06.jpeg" alt="Döner mit Pommes und Cola" loading="lazy">
-          <span class="highlight-label"><span class="k">39–47</span><span class="t">Döner</span></span>
+          <span class="highlight-label"><span class="k">39–47</span><span class="t">Döner <svg class="doener-spit" viewBox="0 0 32 32" width="0.8em" height="0.8em" aria-hidden="true" focusable="false"><line x1="16" y1="3" x2="16" y2="29" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/><g class="spit-meat"><path d="M16,7 C22,7 25,12.5 25,16 C25,19.5 22,25 16,25 C10,25 7,19.5 7,16 C7,12.5 10,7 16,7 Z" fill="var(--crust)"/><path d="M10.5,11.5 L21.5,11.5 M9.5,16 L22.5,16 M10.5,20.5 L21.5,20.5" stroke="var(--bg-2)" stroke-width="1.3" stroke-linecap="round" opacity=".8"/></g></svg></span></span>
         </a>
         <a class="highlight-card reveal" href="#nudeln">
           <img src="assets/images/pizzeria-07.jpeg" alt="Spaghetti Bolognese von oben" loading="lazy">
@@ -210,7 +222,7 @@
           <img src="assets/images/pizzeria-10.jpeg" alt="Döner vom Spieß" loading="lazy">
           <div class="cat-banner-copy">
             <span class="cat-index">02 / 08</span>
-            <h3 class="display">Döner</h3>
+            <h3 class="display">Döner <svg class="doener-spit" viewBox="0 0 32 32" width="0.7em" height="0.7em" aria-hidden="true" focusable="false"><line x1="16" y1="3" x2="16" y2="29" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".55"/><g class="spit-meat"><path d="M16,7 C22,7 25,12.5 25,16 C25,19.5 22,25 16,25 C10,25 7,19.5 7,16 C7,12.5 10,7 16,7 Z" fill="var(--crust)"/><path d="M10.5,11.5 L21.5,11.5 M9.5,16 L22.5,16 M10.5,20.5 L21.5,20.5" stroke="var(--bg-2)" stroke-width="1.3" stroke-linecap="round" opacity=".8"/></g></svg></h3>
             <p class="cat-note">Kalb- oder Hähnchenfleisch, deine Wahl.</p>
           </div>
         </div>
@@ -289,6 +301,8 @@
   </section>
 
   <section id="bewertungen">
+    <div class="crust-edge crust-edge-top" aria-hidden="true"><svg viewBox="0 0 400 20" preserveAspectRatio="none"><path d="M0,20 Q10,0 20,20 Q30,0 40,20 Q50,0 60,20 Q70,0 80,20 Q90,0 100,20 Q110,0 120,20 Q130,0 140,20 Q150,0 160,20 Q170,0 180,20 Q190,0 200,20 Q210,0 220,20 Q230,0 240,20 Q250,0 260,20 Q270,0 280,20 Q290,0 300,20 Q310,0 320,20 Q330,0 340,20 Q350,0 360,20 Q370,0 380,20 Q390,0 400,20 V20 H0 Z" fill="var(--bg-1)"/></svg></div>
+    <div class="crust-edge crust-edge-bottom" aria-hidden="true"><svg viewBox="0 0 400 20" preserveAspectRatio="none"><path d="M0,20 Q10,0 20,20 Q30,0 40,20 Q50,0 60,20 Q70,0 80,20 Q90,0 100,20 Q110,0 120,20 Q130,0 140,20 Q150,0 160,20 Q170,0 180,20 Q190,0 200,20 Q210,0 220,20 Q230,0 240,20 Q250,0 260,20 Q270,0 280,20 Q290,0 300,20 Q310,0 320,20 Q330,0 340,20 Q350,0 360,20 Q370,0 380,20 Q390,0 400,20 V20 H0 Z" fill="var(--bg-1)"/></svg></div>
     <div class="section-inner">
       <div class="section-head">
         <div>

@@ -273,4 +273,80 @@
       if(window.innerWidth > 860) closeMenu();
     });
   }
+
+  // ---- hero headline word rotator ----
+  var rotator = document.getElementById('heroRotator');
+  if(rotator && !reduce){
+    var rotatorWords = ['Holzofen-Pizza', 'Frischer Döner', 'Knusprige Pide'];
+    var rotatorIdx = 0;
+    setInterval(function(){
+      rotatorIdx = (rotatorIdx + 1) % rotatorWords.length;
+      rotator.style.opacity = '0';
+      rotator.style.transform = 'translateY(10px)';
+      setTimeout(function(){
+        rotator.textContent = rotatorWords[rotatorIdx];
+        rotator.style.transform = 'translateY(-10px)';
+        requestAnimationFrame(function(){
+          requestAnimationFrame(function(){
+            rotator.style.opacity = '1';
+            rotator.style.transform = 'translateY(0)';
+          });
+        });
+      }, 350);
+    }, 2800);
+  }
+
+  // ---- count-up stats ----
+  var countEls = document.querySelectorAll('.count');
+  if(countEls.length){
+    function animateCount(el){
+      var target = parseFloat(el.getAttribute('data-target')) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      if(reduce){
+        el.textContent = target + suffix;
+        return;
+      }
+      var start = performance.now();
+      var duration = 1100;
+      function tick(now){
+        var p = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if(p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    if('IntersectionObserver' in window){
+      var countIo = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animateCount(entry.target);
+            countIo.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.5});
+      countEls.forEach(function(el){ countIo.observe(el); });
+    } else {
+      countEls.forEach(animateCount);
+    }
+  }
+
+  // ---- hero photo parallax tilt ----
+  var heroVisual = document.querySelector('.hero-visual');
+  var frameFront = document.querySelector('.hero-frame');
+  var frameBack = document.querySelector('.hero-frame-back');
+  var canTilt = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  if(heroVisual && frameFront && frameBack && canTilt && !reduce){
+    heroVisual.addEventListener('mousemove', function(e){
+      var rect = heroVisual.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+      frameFront.style.transform = 'rotate(-2.5deg) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg)';
+      frameBack.style.transform = 'rotate(7deg) rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg)';
+    });
+    heroVisual.addEventListener('mouseleave', function(){
+      frameFront.style.transform = 'rotate(-2.5deg)';
+      frameBack.style.transform = 'rotate(7deg)';
+    });
+  }
 })();
