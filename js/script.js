@@ -121,6 +121,7 @@
       html += '<article class="dish'+(featured?' featured':'')+'">';
       html += '<div class="dish-top">';
       html += '<div class="dish-name">'+(num?'<span class="num">'+esc(num)+'</span>':'')+' '+esc(name)+'</div>';
+      html += '<span class="dish-leader" aria-hidden="true"></span>';
       html += '<div class="dish-price">';
       prices.forEach(function(p){
         html += '<span>'+esc(p[0])+(p[1]?' <span class="size">'+esc(p[1])+'</span>':'')+'</span>';
