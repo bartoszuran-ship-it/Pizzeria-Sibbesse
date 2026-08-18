@@ -23,26 +23,32 @@
 </svg>
 
 <header class="topbar">
-  <nav class="topbar-side topbar-nav">
-    <ul class="navlinks" id="navlinks">
-      <li><a href="#geschichte"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Über uns</a></li>
-      <li><a href="#speisekarte"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v20M6 2c-2 0-2 3-2 5s0 5 2 5M6 2c2 0 2 3 2 5s0 5-2 5"/><path d="M18 2v8a2 2 0 0 1-2 2 2 2 0 0 1-2-2V2M16 2v20M18 12v10"/></svg>Speisekarte</a></li>
-      <li><a href="#bewertungen"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Bewertungen</a></li>
-      <li><a href="#info"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Öffnungszeiten</a></li>
-      <li class="navlinks-callbtn-wrap"><a class="callbtn" href="tel:+4950653280109">Jetzt anrufen</a></li>
-      <li class="navlinks-info">
-        <span class="navlinks-info-row"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lange Halbe 2, 31079 Sibbesse</span>
-        <span class="navlinks-info-row"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Mo–So 12–22 Uhr</span>
-      </li>
-    </ul>
-  </nav>
   <a href="#top" class="brandmark">
     <picture>
       <source srcset="assets/logo.webp" type="image/webp">
       <img class="logo-mark" src="assets/logo.png" alt="Pizzeria Sibbesse" width="900" height="507">
     </picture>
   </a>
-  <div class="topbar-side topbar-actions">
+  <div class="topbar-center">
+    <span class="status-badge" id="statusBadge" aria-live="polite">
+      <span class="status-dot"></span>
+      <span class="status-text"></span><span class="status-extra"></span>
+    </span>
+  </div>
+  <div class="topbar-actions">
+    <nav class="topbar-nav">
+      <ul class="navlinks" id="navlinks">
+        <li><a href="#geschichte"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Über uns</a></li>
+        <li><a href="#speisekarte"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v20M6 2c-2 0-2 3-2 5s0 5 2 5M6 2c2 0 2 3 2 5s0 5-2 5"/><path d="M18 2v8a2 2 0 0 1-2 2 2 2 0 0 1-2-2V2M16 2v20M18 12v10"/></svg>Speisekarte</a></li>
+        <li><a href="#bewertungen"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Bewertungen</a></li>
+        <li><a href="#info"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Öffnungszeiten</a></li>
+        <li class="navlinks-callbtn-wrap"><a class="callbtn" href="tel:+4950653280109">Jetzt anrufen</a></li>
+        <li class="navlinks-info">
+          <span class="navlinks-info-row"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lange Halbe 2, 31079 Sibbesse</span>
+          <span class="navlinks-info-row"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Mo–So 12–22 Uhr</span>
+        </li>
+      </ul>
+    </nav>
     <a class="callbtn callbtn-desktop" href="tel:+4950653280109">Jetzt anrufen</a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
@@ -56,45 +62,28 @@
     <div class="hero-bg" aria-hidden="true">
       <img src="assets/images/pizzeria-02.jpeg" alt="" loading="eager">
     </div>
+    <canvas id="embers" class="hero-embers" aria-hidden="true"></canvas>
     <div class="hero-inner">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="hero-eyebrow">
-            <span class="dot"></span>
-            <span class="eyebrow">Lange Halbe 2 · 31079 Sibbesse</span>
-          </div>
-          <h1 class="display"><span class="rotator" id="heroRotator">Holzofen-Pizza</span><br><span class="accent">direkt zu dir.</span></h1>
-          <p class="hero-sub">Pizza, Döner, Pide und mehr aus Sibbesse — täglich frisch belegt, im Steinofen gebacken und heiß an deine Tür geliefert. Mittwoch ist Pizza-Tag.</p>
-          <div class="hero-actions">
-            <a class="btn-primary" href="tel:+4950653280109">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              05065 / 3280109
-            </a>
-            <a class="btn-ghost" href="#speisekarte">Speisekarte ansehen</a>
-          </div>
-          <dl class="hero-facts">
-            <div><dt>Öffnungszeiten</dt><dd>Mo–So 12–22 Uhr<small>Lieferung bis 21 Uhr</small></dd></div>
-            <div><dt>Lieferkosten</dt><dd>2,00 € in Sibbesse<small>3,50 € bis 12 km</small></dd></div>
-            <div><dt>Mindestbestellwert</dt><dd>20,00 €<small>Firmen &amp; Feuerwehr kostenfrei</small></dd></div>
-            <div><dt>Bewertung</dt><dd>4,0 / 5 ★<small>30 Google-Rezensionen</small></dd></div>
-          </dl>
+      <div class="hero-copy hero-copy-centered">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span class="eyebrow">Lange Halbe 2 · 31079 Sibbesse</span>
         </div>
-        <div class="hero-visual">
-          <div class="hero-frame-back">
-            <img src="assets/images/pizzeria-12.jpeg" alt="Knuspriges Schnitzel" loading="eager">
-          </div>
-          <div class="hero-frame">
-            <img src="assets/images/pizzeria-15.jpeg" alt="Pide frisch aus dem Holzofen" loading="eager">
-            <canvas id="embers" aria-hidden="true"></canvas>
-          </div>
-          <div class="hero-badge">
-            <span class="num mono">4,0</span>
-            <span>
-              <span class="stars">★★★★</span>
-              <span class="txt">30 Google-<br>Bewertungen</span>
-            </span>
-          </div>
+        <h1 class="display"><span class="rotator" id="heroRotator">Holzofen-Pizza</span><br><span class="accent">direkt zu dir.</span></h1>
+        <p class="hero-sub">Pizza, Döner, Pide und mehr aus Sibbesse — täglich frisch belegt, im Steinofen gebacken und heiß an deine Tür geliefert. Mittwoch ist Pizza-Tag.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="tel:+4950653280109">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            05065 / 3280109
+          </a>
+          <a class="btn-ghost" href="#speisekarte">Speisekarte ansehen</a>
         </div>
+        <dl class="hero-facts">
+          <div><dt>Öffnungszeiten</dt><dd>Mo–So 12–22 Uhr<small>Lieferung bis 21 Uhr</small></dd></div>
+          <div><dt>Lieferkosten</dt><dd>2,00 € in Sibbesse<small>3,50 € bis 12 km</small></dd></div>
+          <div><dt>Mindestbestellwert</dt><dd>20,00 €<small>Firmen &amp; Feuerwehr kostenfrei</small></dd></div>
+          <div><dt>Bewertung</dt><dd>4,0 / 5 ★<small>30 Google-Rezensionen</small></dd></div>
+        </dl>
       </div>
     </div>
   </section>
