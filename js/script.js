@@ -116,9 +116,11 @@
     var grid = document.getElementById("grid-"+key);
     if(!grid) return;
     var html = "";
-    CAT[key].forEach(function(item){
+    CAT[key].forEach(function(item, idx){
       var num = item[0], name = item[1], desc = item[2], prices = item[3], tags = item[4], featured = item[5];
+      var favId = num ? num : (key+'-'+idx);
       html += '<article class="dish'+(featured?' featured':'')+'">';
+      html += '<button class="dish-fav" type="button" data-id="'+esc(favId)+'" aria-label="'+esc(name)+' merken" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>';
       html += '<div class="dish-top">';
       html += '<div class="dish-name">'+(num?'<span class="num">'+esc(num)+'</span>':'')+' '+esc(name)+'</div>';
       html += '<span class="dish-leader" aria-hidden="true"></span>';
@@ -138,8 +140,72 @@
     grid.innerHTML = html;
   });
 
+  // ---- favorites (localStorage) ----
+  var FAV_KEY = 'sibbesseFavorites';
+  function getFavs(){
+    try{ return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); }
+    catch(e){ return new Set(); }
+  }
+  function saveFavs(favs){
+    try{ localStorage.setItem(FAV_KEY, JSON.stringify(Array.from(favs))); }
+    catch(e){}
+  }
+  var favs = getFavs();
+  function updateFavCounter(){
+    var countEl = document.getElementById('favCounter');
+    var badge = document.querySelector('.fav-counter-badge');
+    if(!countEl || !badge) return;
+    countEl.textContent = favs.size;
+    badge.classList.toggle('has-favs', favs.size > 0);
+  }
+  document.querySelectorAll('.dish-fav').forEach(function(btn){
+    var id = btn.getAttribute('data-id');
+    if(favs.has(id)){
+      btn.classList.add('is-fav');
+      btn.setAttribute('aria-pressed', 'true');
+    }
+    btn.addEventListener('click', function(){
+      if(favs.has(id)){
+        favs.delete(id);
+        btn.classList.remove('is-fav');
+        btn.setAttribute('aria-pressed', 'false');
+      } else {
+        favs.add(id);
+        btn.classList.add('is-fav');
+        btn.setAttribute('aria-pressed', 'true');
+      }
+      saveFavs(favs);
+      updateFavCounter();
+    });
+  });
+  updateFavCounter();
+
+  // ---- persistent steam wisps on category banners ----
+  document.querySelectorAll('.cat-banner').forEach(function(banner){
+    for(var i = 0; i < 3; i++){
+      var wisp = document.createElement('span');
+      wisp.className = 'steam-wisp';
+      wisp.style.left = (15 + Math.random() * 70) + '%';
+      wisp.style.animationDelay = (i * 2 + Math.random() * 1.5) + 's';
+      banner.appendChild(wisp);
+    }
+  });
+
   // ---- ember particle canvas (hero) ----
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- oven thermometer flicker ----
+  var thermoEl = document.getElementById('thermoValue');
+  if(thermoEl && !reduce){
+    setInterval(function(){
+      var val = 450 + Math.round((Math.random() - 0.5) * 16);
+      thermoEl.style.opacity = '0';
+      setTimeout(function(){
+        thermoEl.textContent = val + '°C';
+        thermoEl.style.opacity = '1';
+      }, 250);
+    }, 2800);
+  }
   function emberField(canvasId, density, heightBias){
     var c = document.getElementById(canvasId);
     if(!c) return;
