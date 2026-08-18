@@ -214,28 +214,6 @@
     revealEls.forEach(function(el){ el.classList.add('in-view'); });
   }
 
-  // ---- opening-hours status badge (Mo-So 12:00-22:00) ----
-  var OPEN_HOUR = 12, CLOSE_HOUR = 22;
-  function updateStatus(){
-    var badge = document.getElementById('statusBadge');
-    if(!badge) return;
-    var now = new Date();
-    var hour = now.getHours() + now.getMinutes()/60;
-    var isOpen = hour >= OPEN_HOUR && hour < CLOSE_HOUR;
-    var textEl = badge.querySelector('.status-text');
-    var extraEl = badge.querySelector('.status-extra');
-    badge.classList.toggle('is-closed', !isOpen);
-    if(isOpen){
-      textEl.textContent = 'Geöffnet';
-      extraEl.textContent = ' · bis ' + CLOSE_HOUR + ':00 Uhr';
-    } else {
-      textEl.textContent = 'Geschlossen';
-      extraEl.textContent = ' · ab ' + OPEN_HOUR + ':00 Uhr';
-    }
-  }
-  updateStatus();
-  setInterval(updateStatus, 60000);
-
   // ---- header height (used to position mobile nav panel below header) ----
   var topbarEl = document.querySelector('.topbar');
   function updateHeaderHeight(){
@@ -244,6 +222,23 @@
   }
   updateHeaderHeight();
   window.addEventListener('resize', updateHeaderHeight);
+
+  // ---- shrink logo/header on scroll ----
+  if(topbarEl){
+    var scrollTicking = false;
+    function applyScrollState(){
+      topbarEl.classList.toggle('is-scrolled', window.scrollY > 40);
+      updateHeaderHeight();
+      scrollTicking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!scrollTicking){
+        requestAnimationFrame(applyScrollState);
+        scrollTicking = true;
+      }
+    }, {passive:true});
+    applyScrollState();
+  }
 
   // ---- mobile hamburger menu ----
   var menuToggle = document.getElementById('menuToggle');

@@ -23,29 +23,31 @@
 </svg>
 
 <header class="topbar">
+  <nav class="topbar-side topbar-nav">
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#geschichte"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>Über uns</a></li>
+      <li><a href="#speisekarte"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v20M6 2c-2 0-2 3-2 5s0 5 2 5M6 2c2 0 2 3 2 5s0 5-2 5"/><path d="M18 2v8a2 2 0 0 1-2 2 2 2 0 0 1-2-2V2M16 2v20M18 12v10"/></svg>Speisekarte</a></li>
+      <li><a href="#bewertungen"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Bewertungen</a></li>
+      <li><a href="#info"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Öffnungszeiten</a></li>
+      <li class="navlinks-callbtn-wrap"><a class="callbtn" href="tel:+4950653280109">Jetzt anrufen</a></li>
+      <li class="navlinks-info">
+        <span class="navlinks-info-row"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Lange Halbe 2, 31079 Sibbesse</span>
+        <span class="navlinks-info-row"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>Mo–So 12–22 Uhr</span>
+      </li>
+    </ul>
+  </nav>
   <a href="#top" class="brandmark">
     <picture>
       <source srcset="assets/logo.webp" type="image/webp">
       <img class="logo-mark" src="assets/logo.png" alt="Pizzeria Sibbesse" width="900" height="507">
     </picture>
   </a>
-  <span class="status-badge" id="statusBadge" aria-live="polite">
-    <span class="status-dot"></span>
-    <span class="status-text"></span><span class="status-extra"></span>
-  </span>
-  <nav>
-    <ul class="navlinks" id="navlinks">
-      <li><a href="#geschichte">Über uns</a></li>
-      <li><a href="#speisekarte">Speisekarte</a></li>
-      <li><a href="#bewertungen">Bewertungen</a></li>
-      <li><a href="#info">Öffnungszeiten</a></li>
-      <li class="navlinks-callbtn-wrap"><a class="callbtn" href="tel:+4950653280109">Jetzt anrufen</a></li>
-    </ul>
-  </nav>
-  <a class="callbtn callbtn-desktop" href="tel:+4950653280109">Jetzt anrufen</a>
-  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="topbar-side topbar-actions">
+    <a class="callbtn callbtn-desktop" href="tel:+4950653280109">Jetzt anrufen</a>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 <div class="nav-scrim" id="navScrim"></div>
 
@@ -79,10 +81,10 @@
         </div>
         <div class="hero-visual">
           <div class="hero-frame-back">
-            <img src="assets/images/pizzeria-10.jpeg" alt="Döner frisch vom Spieß" loading="eager">
+            <img src="assets/images/pizzeria-12.jpeg" alt="Knuspriges Schnitzel" loading="eager">
           </div>
           <div class="hero-frame">
-            <img src="assets/images/pizzeria-03.jpeg" alt="Pizza wird aus dem Holzofen geholt" loading="eager">
+            <img src="assets/images/pizzeria-15.jpeg" alt="Pide frisch aus dem Holzofen" loading="eager">
             <canvas id="embers" aria-hidden="true"></canvas>
           </div>
           <div class="hero-badge">
@@ -96,27 +98,6 @@
       </div>
     </div>
   </section>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>
-        <b>Holzofen-Pizza</b><span class="sep">●</span>
-        Täglich frisch<span class="sep">●</span>
-        Döner &amp; Pide<span class="sep">●</span>
-        <b>Mittwoch −2&nbsp;€</b> auf große Pizzen<span class="sep">●</span>
-        Lieferservice bis 21&nbsp;Uhr<span class="sep">●</span>
-        4,0★ auf Google<span class="sep">●</span>
-      </span>
-      <span>
-        <b>Holzofen-Pizza</b><span class="sep">●</span>
-        Täglich frisch<span class="sep">●</span>
-        Döner &amp; Pide<span class="sep">●</span>
-        <b>Mittwoch −2&nbsp;€</b> auf große Pizzen<span class="sep">●</span>
-        Lieferservice bis 21&nbsp;Uhr<span class="sep">●</span>
-        4,0★ auf Google<span class="sep">●</span>
-      </span>
-    </div>
-  </div>
 
   <div class="promo">
     <div class="promo-inner">
