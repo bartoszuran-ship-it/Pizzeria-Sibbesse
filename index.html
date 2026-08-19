@@ -57,6 +57,12 @@
 </header>
 <div class="nav-scrim" id="navScrim"></div>
 
+<div class="fav-toast" id="favToast" role="status" aria-live="polite">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+  <span>Zu Favoriten hinzugefügt</span>
+  <button type="button" id="favToastView">Ansehen</button>
+</div>
+
 <div class="fav-tray-scrim" id="favTrayScrim"></div>
 <aside class="fav-tray" id="favTray" aria-hidden="true">
   <div class="fav-tray-header">
@@ -198,6 +204,7 @@
           <button class="fav-counter-badge" type="button" id="favTrayToggle" aria-haspopup="true" aria-expanded="false" aria-controls="favTray">
             <svg class="fav-counter-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
             <span id="favCounter">0</span> gemerkt
+            <svg class="fav-counter-chevron" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
           </button>
         </div>
       </div>

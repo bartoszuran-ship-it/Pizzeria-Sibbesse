@@ -432,25 +432,75 @@
   .section-head p{max-width:32rem;color:var(--ink-dim);margin:.6rem 0 0;font-size:.98rem;}
   .speisekarte-head-right{display:flex;flex-direction:column;align-items:flex-end;gap:.7rem;}
   .fav-counter-badge{
-    display:inline-flex;align-items:center;gap:.45rem;
-    padding:.4rem .8rem;
+    display:inline-flex;align-items:center;gap:.5rem;
+    padding:.55rem .95rem;
     border-radius:100px;
     border:1px solid var(--line);
     background:var(--bg-1);
     color:var(--ink-faint);
-    font-size:.78rem;
+    font-size:.8rem;
     font-family:inherit;
     white-space:nowrap;
     cursor:pointer;
-    transition:border-color .2s, color .2s, background .2s;
+    box-shadow:0 4px 12px -6px rgba(0,0,0,.4);
+    transition:border-color .2s, color .2s, background .2s, transform .2s, box-shadow .2s;
   }
-  .fav-counter-badge:hover{border-color:var(--crust);color:var(--ink);}
+  .fav-counter-badge:hover{
+    border-color:var(--crust);
+    color:var(--ink);
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px -8px rgba(0,0,0,.5);
+  }
   .fav-counter-icon{flex-shrink:0;}
+  .fav-counter-chevron{flex-shrink:0;opacity:.6;transition:opacity .2s;}
+  .fav-counter-badge:hover .fav-counter-chevron{opacity:1;}
   .fav-counter-badge.has-favs{
     border-color:var(--ember);
     color:var(--ink);
   }
   .fav-counter-badge.has-favs .fav-counter-icon{color:var(--ember);}
+
+  /* ---------- fav toast ---------- */
+  .fav-toast{
+    position:fixed;
+    left:50%;bottom:1.6rem;
+    z-index:70;
+    display:flex;align-items:center;gap:.7rem;
+    padding:.8rem 1rem .8rem 1.1rem;
+    border-radius:100px;
+    background:var(--bg-2);
+    border:1px solid var(--ember);
+    color:var(--ink);
+    font-size:.85rem;
+    white-space:nowrap;
+    box-shadow:0 14px 32px -12px rgba(0,0,0,.6);
+    transform:translate(-50%, 1.3rem);
+    opacity:0;
+    pointer-events:none;
+    transition:transform .3s ease, opacity .3s ease;
+  }
+  .fav-toast svg{flex-shrink:0;color:var(--ember);}
+  .fav-toast.is-visible{
+    transform:translate(-50%, 0);
+    opacity:1;
+    pointer-events:auto;
+  }
+  .fav-toast button{
+    flex-shrink:0;
+    background:var(--ember);
+    color:#fff9f2;
+    border:none;
+    padding:.4rem .8rem;
+    border-radius:100px;
+    font-size:.78rem;
+    font-weight:700;
+    font-family:inherit;
+    cursor:pointer;
+  }
+  .fav-toast button:hover{background:var(--ember-soft);}
+  @media (max-width:1180px){
+    .fav-toast{bottom:5.2rem;}
+  }
 
   /* ---------- favorites tray ---------- */
   .fav-tray-scrim{

@@ -158,6 +158,16 @@
     countEl.textContent = favs.size;
     badge.classList.toggle('has-favs', favs.size > 0);
   }
+  var favToast = document.getElementById('favToast');
+  var favToastTimer = null;
+  function showFavToast(){
+    if(!favToast) return;
+    favToast.classList.add('is-visible');
+    clearTimeout(favToastTimer);
+    favToastTimer = setTimeout(function(){
+      favToast.classList.remove('is-visible');
+    }, 3200);
+  }
   document.querySelectorAll('.dish-fav').forEach(function(btn){
     var id = btn.getAttribute('data-id');
     if(favs.has(id)){
@@ -173,6 +183,7 @@
         favs.add(id);
         btn.classList.add('is-fav');
         btn.setAttribute('aria-pressed', 'true');
+        showFavToast();
       }
       saveFavs(favs);
       updateFavCounter();
@@ -255,6 +266,16 @@
     });
     favTrayClose.addEventListener('click', closeFavTray);
     favTrayScrim.addEventListener('click', closeFavTray);
+    var favToastView = document.getElementById('favToastView');
+    if(favToastView){
+      favToastView.addEventListener('click', function(){
+        if(favToast){
+          favToast.classList.remove('is-visible');
+          clearTimeout(favToastTimer);
+        }
+        openFavTray();
+      });
+    }
   }
 
   // ---- ember particle canvas (hero) ----
