@@ -119,7 +119,7 @@
     CAT[key].forEach(function(item, idx){
       var num = item[0], name = item[1], desc = item[2], prices = item[3], tags = item[4], featured = item[5];
       var favId = num ? num : (key+'-'+idx);
-      html += '<article class="dish'+(featured?' featured':'')+'">';
+      html += '<article class="dish'+(featured?' featured':'')+'" id="dish-'+esc(favId)+'">';
       html += '<button class="dish-fav" type="button" data-id="'+esc(favId)+'" aria-label="'+esc(name)+' merken" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>';
       html += '<div class="dish-top">';
       html += '<div class="dish-name">'+(num?'<span class="num">'+esc(num)+'</span>':'')+' '+esc(name)+'</div>';
@@ -336,7 +336,6 @@
     requestAnimationFrame(tick);
   }
   emberField('embers', 22000);
-  emberField('ovenfire', 9000);
 
   // ---- scroll reveal ----
   var revealEls = document.querySelectorAll('.reveal');
