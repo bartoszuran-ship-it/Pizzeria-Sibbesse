@@ -789,50 +789,6 @@
     box-shadow:0 6px 14px -6px rgba(232,85,31,.7);
   }
 
-  /* ---------- story ---------- */
-  .story{
-    max-width:46rem;
-    margin:0 auto;
-    text-align:center;
-  }
-  .story-text p{color:var(--ink-dim);font-size:1.02rem;max-width:36rem;margin-left:auto;margin-right:auto;}
-  .values-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:1rem;
-    margin-top:1.8rem;
-    text-align:left;
-  }
-  .value-card{
-    background:var(--bg-1);
-    border:1px solid var(--line);
-    border-radius:8px;
-    padding:1.4rem;
-    transition:border-color .2s, transform .2s;
-  }
-  .value-card:hover{border-color:var(--ember);transform:translateY(-2px);}
-  .value-icon{
-    width:44px;height:44px;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    background:var(--bg-2);
-    border:1px solid var(--line);
-    color:var(--ember);
-    margin-bottom:.9rem;
-  }
-  .value-icon svg{width:20px;height:20px;display:block;}
-  .value-card h3{
-    margin:0 0 .35rem;
-    font-family:'Anton';
-    font-size:1.02rem;
-    letter-spacing:.01em;
-    text-transform:uppercase;
-    color:var(--ink);
-  }
-  .value-card p{margin:0;color:var(--ink-dim);font-size:.85rem;line-height:1.5;}
-  @media (max-width:480px){
-    .values-grid{grid-template-columns:1fr;}
-  }
   /* ---------- highlight gallery ---------- */
   .highlights{
     display:grid;
