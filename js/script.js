@@ -176,36 +176,89 @@
       }
       saveFavs(favs);
       updateFavCounter();
+      updateFavTray();
     });
   });
   updateFavCounter();
 
-  // ---- persistent steam wisps on category banners ----
-  document.querySelectorAll('.cat-banner').forEach(function(banner){
-    for(var i = 0; i < 3; i++){
-      var wisp = document.createElement('span');
-      wisp.className = 'steam-wisp';
-      wisp.style.left = (15 + Math.random() * 70) + '%';
-      wisp.style.animationDelay = (i * 2 + Math.random() * 1.5) + 's';
-      banner.appendChild(wisp);
+  // ---- favorites tray (view & order saved dishes) ----
+  function dishFieldText(dishEl, selector){
+    var el = dishEl.querySelector(selector);
+    return el ? el.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
+  function dishPriceText(dishEl){
+    var spans = dishEl.querySelectorAll('.dish-price > span');
+    var parts = [];
+    spans.forEach(function(s){ parts.push(s.textContent.replace(/\s+/g, ' ').trim()); });
+    return parts.join(' · ');
+  }
+  function updateFavTray(){
+    var list = document.getElementById('favTrayList');
+    var tray = document.getElementById('favTray');
+    if(!list || !tray) return;
+    var html = '';
+    favs.forEach(function(id){
+      var favBtn = document.querySelector('.dish-fav[data-id="' + id + '"]');
+      var dishEl = favBtn ? favBtn.closest('.dish') : null;
+      if(!dishEl) return;
+      var name = dishFieldText(dishEl, '.dish-name');
+      var price = dishPriceText(dishEl);
+      html += '<div class="fav-tray-item">' +
+                '<div class="fav-tray-item-info">' +
+                  '<span class="fav-tray-item-name">' + esc(name) + '</span>' +
+                  '<span class="fav-tray-item-price">' + esc(price) + '</span>' +
+                '</div>' +
+                '<button class="fav-tray-item-remove" type="button" data-id="' + esc(id) + '" aria-label="' + esc(name) + ' entfernen">' +
+                  '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>' +
+                '</button>' +
+              '</div>';
+    });
+    list.innerHTML = html;
+    tray.classList.toggle('is-empty', favs.size === 0);
+    list.querySelectorAll('.fav-tray-item-remove').forEach(function(removeBtn){
+      removeBtn.addEventListener('click', function(){
+        var id = removeBtn.getAttribute('data-id');
+        favs.delete(id);
+        saveFavs(favs);
+        var dishBtn = document.querySelector('.dish-fav[data-id="' + id + '"]');
+        if(dishBtn){
+          dishBtn.classList.remove('is-fav');
+          dishBtn.setAttribute('aria-pressed', 'false');
+        }
+        updateFavCounter();
+        updateFavTray();
+      });
+    });
+  }
+  var favTray = document.getElementById('favTray');
+  var favTrayScrim = document.getElementById('favTrayScrim');
+  var favTrayToggle = document.getElementById('favTrayToggle');
+  var favTrayClose = document.getElementById('favTrayClose');
+  if(favTray && favTrayScrim && favTrayToggle && favTrayClose){
+    function openFavTray(){
+      updateFavTray();
+      favTray.classList.add('is-open');
+      favTrayScrim.classList.add('is-open');
+      favTrayToggle.setAttribute('aria-expanded', 'true');
+      favTray.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
-  });
+    function closeFavTray(){
+      favTray.classList.remove('is-open');
+      favTrayScrim.classList.remove('is-open');
+      favTrayToggle.setAttribute('aria-expanded', 'false');
+      favTray.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+    favTrayToggle.addEventListener('click', function(){
+      if(favTray.classList.contains('is-open')) closeFavTray(); else openFavTray();
+    });
+    favTrayClose.addEventListener('click', closeFavTray);
+    favTrayScrim.addEventListener('click', closeFavTray);
+  }
 
   // ---- ember particle canvas (hero) ----
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ---- oven thermometer flicker ----
-  var thermoEl = document.getElementById('thermoValue');
-  if(thermoEl && !reduce){
-    setInterval(function(){
-      var val = 450 + Math.round((Math.random() - 0.5) * 16);
-      thermoEl.style.opacity = '0';
-      setTimeout(function(){
-        thermoEl.textContent = val + '°C';
-        thermoEl.style.opacity = '1';
-      }, 250);
-    }, 2800);
-  }
   function emberField(canvasId, density, heightBias){
     var c = document.getElementById(canvasId);
     if(!c) return;

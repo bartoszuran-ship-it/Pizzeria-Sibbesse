@@ -57,6 +57,24 @@
 </header>
 <div class="nav-scrim" id="navScrim"></div>
 
+<div class="fav-tray-scrim" id="favTrayScrim"></div>
+<aside class="fav-tray" id="favTray" aria-hidden="true">
+  <div class="fav-tray-header">
+    <h3>Meine Favoriten</h3>
+    <button class="fav-tray-close" id="favTrayClose" type="button" aria-label="Schließen">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="fav-tray-list" id="favTrayList"></div>
+  <p class="fav-tray-empty" id="favTrayEmpty">Noch nichts gemerkt. Tippe beim Durchstöbern der Speisekarte auf das Herz ♡ bei einem Gericht — hier siehst du dann alles auf einen Blick, bevor du anrufst.</p>
+  <div class="fav-tray-footer">
+    <a class="btn-primary" href="tel:+4950653280109">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Jetzt anrufen &amp; bestellen
+    </a>
+  </div>
+</aside>
+
 <main id="top">
   <section class="hero" aria-label="Willkommen">
     <div class="hero-bg" aria-hidden="true">
@@ -95,41 +113,6 @@
     </div>
   </div>
 
-  <section class="steps" aria-label="So bestellst du">
-    <div class="section-inner steps-grid">
-      <div class="step reveal">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <span class="step-num">01</span>
-        <h3>Anrufen</h3>
-        <p>Kurz durchklingeln unter 05065 / 3280109 — wir nehmen deine Bestellung persönlich auf.</p>
-      </div>
-      <div class="step-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-      <div class="step reveal">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2v20M6 2c-2 0-2 3-2 5s0 5 2 5M6 2c2 0 2 3 2 5s0 5-2 5"/><path d="M18 2v8a2 2 0 0 1-2 2 2 2 0 0 1-2-2V2M16 2v20M18 12v10"/></svg>
-        </div>
-        <span class="step-num">02</span>
-        <h3>Wählen</h3>
-        <p>Pizza, Döner, Pide oder Salat — 83 Gerichte, alle frisch nach Wahl.</p>
-      </div>
-      <div class="step-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </div>
-      <div class="step reveal">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0 5.4 5.4 0 0 0 0 7.65L12 21l8.42-8.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
-        </div>
-        <span class="step-num">03</span>
-        <h3>Genießen</h3>
-        <p>Heiß aus dem Holzofen direkt an deine Tür geliefert.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="geschichte">
     <div class="section-inner story">
       <div class="story-text">
@@ -147,13 +130,6 @@
       <div class="oven">
         <img src="assets/images/pizzeria-04.jpeg" alt="Frisch gebackene Pizza wird aus dem Holzofen geholt" loading="lazy">
         <canvas id="ovenfire" aria-hidden="true"></canvas>
-        <div class="oven-thermo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z"/></svg>
-          <span>
-            <span class="thermo-value" id="thermoValue">450°C</span>
-            <span class="thermo-label">Ofentemperatur</span>
-          </span>
-        </div>
       </div>
     </div>
   </section>
@@ -219,10 +195,10 @@
         </div>
         <div class="speisekarte-head-right">
           <p>Alle Pizzen sind mit Tomatensauce &amp; Käse belegt. Preise für Klein (24 cm) und Groß (28 cm), sofern zutreffend.</p>
-          <span class="fav-counter-badge" aria-live="polite">
+          <button class="fav-counter-badge" type="button" id="favTrayToggle" aria-haspopup="true" aria-expanded="false" aria-controls="favTray">
             <svg class="fav-counter-icon" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
             <span id="favCounter">0</span> gemerkt
-          </span>
+          </button>
         </div>
       </div>
     </div>
