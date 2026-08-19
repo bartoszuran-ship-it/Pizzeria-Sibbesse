@@ -360,25 +360,34 @@
   .btn-primary:hover{transform:translateY(-2px);background:var(--ember-soft);}
   .btn-ghost{
     display:inline-flex;align-items:center;gap:.5rem;
-    background:transparent;
-    color:var(--ink);
+    background:rgba(255,248,240,.08);
+    backdrop-filter:blur(6px);
+    color:#fff9f2;
     text-decoration:none;
     font-weight:600;
     font-size:.92rem;
     padding:.95rem 1.6rem;
-    border:1px solid var(--line);
+    border:1px solid rgba(255,248,240,.4);
     border-radius:var(--radius);
-    transition:border-color .15s, background .15s;
+    transition:border-color .15s, background .15s, transform .15s;
   }
-  .btn-ghost:hover{border-color:var(--crust);background:var(--bg-2);}
+  .btn-ghost:hover{border-color:#fff9f2;background:rgba(255,248,240,.18);transform:translateY(-2px);}
   .hero-facts{
+    position:relative;
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
     gap:1.6rem 2.6rem;
     max-width:56rem;
     padding-top:2.2rem;
-    border-top:1px solid var(--line);
+  }
+  .hero-facts::before{
+    content:"";
+    position:absolute;top:0;left:50%;
+    transform:translateX(-50%);
+    width:min(100%, 42rem);
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,248,240,.28), transparent);
   }
   .hero-facts > div{text-align:center;}
   .hero-facts dt{
