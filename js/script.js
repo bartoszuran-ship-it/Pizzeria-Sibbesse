@@ -154,9 +154,16 @@
   function updateFavCounter(){
     var countEl = document.getElementById('favCounter');
     var badge = document.querySelector('.fav-counter-badge');
-    if(!countEl || !badge) return;
-    countEl.textContent = favs.size;
-    badge.classList.toggle('has-favs', favs.size > 0);
+    if(countEl && badge){
+      countEl.textContent = favs.size;
+      badge.classList.toggle('has-favs', favs.size > 0);
+    }
+    var stickyCount = document.getElementById('stickyFavCount');
+    var stickyBtn = document.getElementById('stickyFavBtn');
+    if(stickyCount && stickyBtn){
+      stickyCount.textContent = favs.size;
+      stickyBtn.classList.toggle('has-favs', favs.size > 0);
+    }
   }
   var favToast = document.getElementById('favToast');
   var favToastTimer = null;
@@ -245,12 +252,14 @@
   var favTrayScrim = document.getElementById('favTrayScrim');
   var favTrayToggle = document.getElementById('favTrayToggle');
   var favTrayClose = document.getElementById('favTrayClose');
+  var stickyFavBtn = document.getElementById('stickyFavBtn');
   if(favTray && favTrayScrim && favTrayToggle && favTrayClose){
     function openFavTray(){
       updateFavTray();
       favTray.classList.add('is-open');
       favTrayScrim.classList.add('is-open');
       favTrayToggle.setAttribute('aria-expanded', 'true');
+      if(stickyFavBtn) stickyFavBtn.setAttribute('aria-expanded', 'true');
       favTray.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
@@ -258,12 +267,18 @@
       favTray.classList.remove('is-open');
       favTrayScrim.classList.remove('is-open');
       favTrayToggle.setAttribute('aria-expanded', 'false');
+      if(stickyFavBtn) stickyFavBtn.setAttribute('aria-expanded', 'false');
       favTray.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
     favTrayToggle.addEventListener('click', function(){
       if(favTray.classList.contains('is-open')) closeFavTray(); else openFavTray();
     });
+    if(stickyFavBtn){
+      stickyFavBtn.addEventListener('click', function(){
+        if(favTray.classList.contains('is-open')) closeFavTray(); else openFavTray();
+      });
+    }
     favTrayClose.addEventListener('click', closeFavTray);
     favTrayScrim.addEventListener('click', closeFavTray);
     var favToastView = document.getElementById('favToastView');
