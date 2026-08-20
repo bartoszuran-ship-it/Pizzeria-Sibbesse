@@ -502,22 +502,49 @@
     }
   }
 
-  // ---- hero photo parallax tilt ----
-  var heroVisual = document.querySelector('.hero-visual');
-  var frameFront = document.querySelector('.hero-frame');
-  var frameBack = document.querySelector('.hero-frame-back');
+  // ---- 3D tilt on cards (desktop mouse only) ----
   var canTilt = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  if(heroVisual && frameFront && frameBack && canTilt && !reduce){
-    heroVisual.addEventListener('mousemove', function(e){
-      var rect = heroVisual.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      frameFront.style.transform = 'rotate(-2.5deg) rotateY(' + (x * 10) + 'deg) rotateX(' + (-y * 10) + 'deg)';
-      frameBack.style.transform = 'rotate(7deg) rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg)';
+  function initTilt(selector, max, lift){
+    if(!canTilt || reduce) return;
+    document.querySelectorAll(selector).forEach(function(el){
+      el.addEventListener('mousemove', function(e){
+        var rect = el.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        el.style.transform = 'translateY(' + lift + 'px) perspective(800px) rotateX(' + (-y * max) + 'deg) rotateY(' + (x * max) + 'deg)';
+      });
+      el.addEventListener('mouseleave', function(){
+        el.style.transform = '';
+      });
     });
-    heroVisual.addEventListener('mouseleave', function(){
-      frameFront.style.transform = 'rotate(-2.5deg)';
-      frameBack.style.transform = 'rotate(7deg)';
+  }
+  initTilt('.highlight-card', 7, -6);
+  initTilt('.dish', 5, -3);
+
+  // ---- scrollspy for menu category nav ----
+  var catnavLinks = document.querySelectorAll('.catnav a');
+  var menuCats = document.querySelectorAll('.menu-cat[id]');
+  var catnavEl = document.querySelector('.catnav');
+  if(catnavLinks.length && menuCats.length && catnavEl && 'IntersectionObserver' in window){
+    var catnavMap = {};
+    catnavLinks.forEach(function(a){
+      catnavMap[a.getAttribute('href').slice(1)] = a;
     });
+    function setActiveCat(id){
+      var link = catnavMap[id];
+      if(!link || link.classList.contains('is-active')) return;
+      catnavLinks.forEach(function(a){ a.classList.remove('is-active'); });
+      link.classList.add('is-active');
+      var navRect = catnavEl.getBoundingClientRect();
+      var linkRect = link.getBoundingClientRect();
+      var offset = (linkRect.left + linkRect.right) / 2 - (navRect.left + navRect.right) / 2;
+      catnavEl.scrollBy({left: offset, behavior: reduce ? 'auto' : 'smooth'});
+    }
+    var catObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting) setActiveCat(entry.target.id);
+      });
+    }, {rootMargin: '-30% 0px -55% 0px', threshold: 0});
+    menuCats.forEach(function(cat){ catObserver.observe(cat); });
   }
 })();

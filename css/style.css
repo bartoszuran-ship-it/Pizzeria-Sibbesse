@@ -627,6 +627,7 @@
     transition:color .15s, border-color .15s, background .15s;
   }
   .catnav a:hover{color:var(--ink);border-color:var(--crust);background:var(--bg-2-hover);}
+  .catnav a.is-active{background:var(--ember);border-color:var(--ember);color:#fff9f2;}
 
   /* ---------- menu ---------- */
   .menu-cat{scroll-margin-top:120px;}
