@@ -528,6 +528,7 @@
   }
   initTilt('.highlight-card', 7, -6);
   initTilt('.dish', 5, -3);
+  initTilt('.review', 5, -3);
 
   // ---- scrollspy for menu category nav ----
   var catnavLinks = document.querySelectorAll('.catnav a');

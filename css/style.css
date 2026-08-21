@@ -964,13 +964,67 @@
   }
 
   /* ---------- reviews ---------- */
+  .rating-trophy{
+    display:flex;align-items:center;gap:.9rem;
+    flex-wrap:wrap;
+  }
+  .rating-trophy-num{
+    font-family:'Anton';
+    font-size:2.6rem;
+    line-height:1;
+    color:var(--ink);
+  }
+  .rating-trophy-stars{display:inline-flex;gap:.15rem;}
+  .rating-trophy-stars .star{
+    width:22px;height:22px;
+    fill:var(--ink-faint);
+    opacity:0;
+    transform:scale(.3) rotate(-25deg);
+  }
+  .rating-trophy-stars .star:not(.is-empty){fill:var(--crust-soft);}
+  .rating-trophy.in-view .star{
+    animation:starPop .5s cubic-bezier(.2,.9,.3,1.4) forwards;
+    animation-delay:calc(var(--d) * .12s);
+  }
+  @keyframes starPop{
+    to{opacity:1;transform:scale(1) rotate(0deg);}
+  }
+  .rating-trophy-sub{color:var(--ink-dim);font-size:.92rem;}
+  @media (prefers-reduced-motion:reduce){
+    .rating-trophy-stars .star{opacity:1;transform:none;animation:none;}
+  }
   .reviews-strip{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1px;background:var(--line);border:1px solid var(--line);
+    gap:1.1rem;
   }
   @media (max-width:760px){.reviews-strip{grid-template-columns:1fr;}}
-  .review{background:var(--bg-1);padding:1.6rem;}
+  .review{
+    position:relative;
+    background:var(--bg-1);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:1.6rem;
+    transition:border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .review:hover{
+    border-color:var(--ember);
+    transform:translateY(-3px);
+    box-shadow:0 16px 32px -18px rgba(0,0,0,.5), 0 0 0 1px rgba(232,85,31,.25);
+  }
+  .review.reveal:nth-child(2){transition-delay:.1s;}
+  .review.reveal:nth-child(3){transition-delay:.2s;}
+  .review::before{
+    content:"❝";
+    position:absolute;
+    right:1.1rem;top:.4rem;
+    font-family:Georgia,serif;
+    font-size:3rem;
+    line-height:1;
+    color:var(--ember);
+    opacity:.22;
+    pointer-events:none;
+  }
   .review-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;}
   .review-avatar{
     flex-shrink:0;
