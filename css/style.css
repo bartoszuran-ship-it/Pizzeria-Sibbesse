@@ -759,6 +759,14 @@
     box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 10px 22px -16px rgba(0,0,0,.75);
     transition:background .2s, border-color .2s, transform .2s, box-shadow .2s;
   }
+  /* gemerkte Gerichte bleiben dauerhaft umrandet.
+     Muss vor .dish:hover stehen: gleiche Spezifitaet, sonst gewinnt diese
+     Regel beim Ueberfahren gegen den Hover-Zustand. */
+  .dish.is-fav{
+    border-color:var(--ember);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05), 0 0 0 1px rgba(232,85,31,.3),
+               0 10px 26px -18px rgba(232,85,31,.55), 0 10px 22px -16px rgba(0,0,0,.75);
+  }
   .dish-fav{
     position:absolute;
     top:-.6rem;left:1rem;

@@ -175,21 +175,25 @@
       favToast.classList.remove('is-visible');
     }, 3200);
   }
+  // Herz und Karte gemeinsam umschalten, damit gemerkte Gerichte dauerhaft
+  // umrandet bleiben — auch die aus einem frueheren Besuch
+  function markDishFav(btn, on){
+    if(!btn) return;
+    btn.classList.toggle('is-fav', on);
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var dish = btn.closest('.dish');
+    if(dish) dish.classList.toggle('is-fav', on);
+  }
   document.querySelectorAll('.dish-fav').forEach(function(btn){
     var id = btn.getAttribute('data-id');
-    if(favs.has(id)){
-      btn.classList.add('is-fav');
-      btn.setAttribute('aria-pressed', 'true');
-    }
+    if(favs.has(id)) markDishFav(btn, true);
     btn.addEventListener('click', function(){
       if(favs.has(id)){
         favs.delete(id);
-        btn.classList.remove('is-fav');
-        btn.setAttribute('aria-pressed', 'false');
+        markDishFav(btn, false);
       } else {
         favs.add(id);
-        btn.classList.add('is-fav');
-        btn.setAttribute('aria-pressed', 'true');
+        markDishFav(btn, true);
         showFavToast();
       }
       saveFavs(favs);
@@ -238,11 +242,7 @@
         var id = removeBtn.getAttribute('data-id');
         favs.delete(id);
         saveFavs(favs);
-        var dishBtn = document.querySelector('.dish-fav[data-id="' + id + '"]');
-        if(dishBtn){
-          dishBtn.classList.remove('is-fav');
-          dishBtn.setAttribute('aria-pressed', 'false');
-        }
+        markDishFav(document.querySelector('.dish-fav[data-id="' + id + '"]'), false);
         updateFavCounter();
         updateFavTray();
       });
