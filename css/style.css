@@ -512,9 +512,13 @@
     box-shadow:var(--shadow);
     padding:1.5rem;
     transform:translateX(100%);
+    /* kept out of the layout while closed so it can't widen the page */
+    display:none;
     transition:transform .3s ease;
+    transition:transform .3s ease, display .3s allow-discrete;
   }
-  .fav-tray.is-open{transform:translateX(0);}
+  .fav-tray.is-open{display:flex;transform:translateX(0);}
+  @starting-style{.fav-tray.is-open{transform:translateX(100%);}}
   .fav-tray-header{
     display:flex;align-items:center;justify-content:space-between;
     margin-bottom:1.2rem;
@@ -604,19 +608,52 @@
   .promo-inner p{margin:0;font-size:.92rem;opacity:.92;}
 
   /* ---------- category nav ---------- */
-  .catnav{
-    position:sticky;top:57px;z-index:30;
-    display:flex;gap:.5rem;flex-wrap:nowrap;
-    overflow-x:auto;
-    padding:.9rem clamp(1.2rem,6vw,4rem);
-    background:color-mix(in srgb, var(--bg-0) 92%, transparent);
-    backdrop-filter:blur(8px);
+  .catnav-wrap{
+    position:sticky;top:var(--header-h,64px);z-index:30;
+    /* full-bleed: cancel the section padding so the bar spans the whole width */
+    margin-inline:calc(-1 * clamp(1.2rem,6vw,4rem));
+    background:color-mix(in srgb, var(--bg-0) 97%, transparent);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
+  }
+  /* fades signal that the row keeps going instead of looking cut off */
+  .catnav-wrap::before,
+  .catnav-wrap::after{
+    content:"";
+    position:absolute;top:0;bottom:0;
+    width:3rem;
+    z-index:1;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .2s ease;
+  }
+  .catnav-wrap::before{left:0;background:linear-gradient(90deg, var(--bg-0) 45%, transparent);}
+  .catnav-wrap::after{right:0;background:linear-gradient(270deg, var(--bg-0) 45%, transparent);}
+  .catnav-wrap.can-scroll-left::before,
+  .catnav-wrap.can-scroll-right::after{opacity:1;}
+  .catnav{
+    --catnav-pad:clamp(1.2rem,6vw,4rem);
+    --catnav-gap:.5rem;
+    display:flex;gap:var(--catnav-gap);flex-wrap:nowrap;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;
+    scroll-padding-inline:var(--catnav-pad);
+    padding:.9rem 0 .9rem var(--catnav-pad);
     scrollbar-width:none;
   }
   .catnav::-webkit-scrollbar{display:none;}
+  /* trailing spacer instead of padding-right: iOS Safari drops the trailing
+     padding of a horizontal flex scroller, which clipped the last chip */
+  .catnav::after{
+    content:"";
+    flex:0 0 calc(var(--catnav-pad) - var(--catnav-gap));
+  }
   .catnav a{
-    flex-shrink:0;
+    flex:0 0 auto;
+    scroll-snap-align:center;
+    white-space:nowrap;
     text-decoration:none;
     font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
     color:var(--ink-dim);
@@ -630,7 +667,7 @@
   .catnav a.is-active{background:var(--ember);border-color:var(--ember);color:#fff9f2;}
 
   /* ---------- menu ---------- */
-  .menu-cat{scroll-margin-top:120px;}
+  .menu-cat{scroll-margin-top:calc(var(--header-h,64px) + var(--catnav-h,56px) + 1rem);}
   .menu-cat + .menu-cat{margin-top:3.2rem;}
 
   .cat-banner{
@@ -692,7 +729,7 @@
   }
   .dish{
     position:relative;
-    scroll-margin-top:120px;
+    scroll-margin-top:calc(var(--header-h,64px) + var(--catnav-h,56px) + 1rem);
     background:linear-gradient(160deg, #241410 0%, #150c09 100%);
     border:1px solid rgba(232,85,31,.2);
     border-radius:8px;
@@ -743,7 +780,9 @@
     font-size:1.04rem;font-weight:700;
     color:var(--ink);
     display:flex;align-items:baseline;gap:.5rem;
-    flex-shrink:0;
+    min-width:0;
+    flex-shrink:1;
+    overflow-wrap:anywhere;
   }
   .dish-name .num{
     font-family:ui-monospace,monospace;
@@ -1050,10 +1089,15 @@
       padding:1.5rem 1.5rem 2rem;
       margin:0;
       transform:translateX(100%);
+      /* display:none while closed — a panel parked off-canvas made the whole
+         page scrollable sideways, which cut off the sticky bars */
+      display:none;
       transition:transform .25s ease;
+      transition:transform .25s ease, display .25s allow-discrete;
       z-index:36;
     }
-    .navlinks.is-open{transform:translateX(0);}
+    .navlinks.is-open{display:flex;transform:translateX(0);}
+    @starting-style{.navlinks.is-open{transform:translateX(100%);}}
     .navlinks li{border-top:1px solid var(--line);}
     .navlinks li:first-child{border-top:none;}
     .navlinks a:not(.callbtn){
@@ -1110,6 +1154,12 @@
 
     section{padding-left:1rem;padding-right:1rem;}
     .cat-banner-copy{padding-left:1rem;padding-right:1rem;}
+
+    /* chips flush with the cards below and a touch more compact */
+    .catnav-wrap{margin-inline:-1rem;}
+    .catnav{--catnav-pad:1rem;--catnav-gap:.4rem;padding-top:.65rem;padding-bottom:.65rem;}
+    .catnav a{font-size:.72rem;letter-spacing:.05em;padding:.45rem .8rem;}
+    .catnav-wrap::before,.catnav-wrap::after{width:2.4rem;}
     .cat-banner-copy h3{font-size:clamp(1.7rem,8vw,2.4rem);}
 
     .dish-grid{grid-template-columns:1fr;}

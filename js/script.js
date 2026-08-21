@@ -390,11 +390,16 @@
   updateStatus();
   setInterval(updateStatus, 60000);
 
-  // ---- header height (used to position mobile nav panel below header) ----
+  // ---- header height (used to position mobile nav panel and category nav) ----
   var topbarEl = document.querySelector('.topbar');
+  var catnavWrapEl = document.querySelector('.catnav-wrap');
   function updateHeaderHeight(){
-    if(!topbarEl) return;
-    document.documentElement.style.setProperty('--header-h', topbarEl.offsetHeight + 'px');
+    if(topbarEl){
+      document.documentElement.style.setProperty('--header-h', topbarEl.offsetHeight + 'px');
+    }
+    if(catnavWrapEl){
+      document.documentElement.style.setProperty('--catnav-h', catnavWrapEl.offsetHeight + 'px');
+    }
   }
   updateHeaderHeight();
   window.addEventListener('resize', updateHeaderHeight);
@@ -525,6 +530,25 @@
   var catnavLinks = document.querySelectorAll('.catnav a');
   var menuCats = document.querySelectorAll('.menu-cat[id]');
   var catnavEl = document.querySelector('.catnav');
+
+  // fade the edges only where there is actually more to scroll to
+  if(catnavEl && catnavEl.parentElement){
+    var catnavShell = catnavEl.parentElement;
+    var edgeTicking = false;
+    function updateCatnavEdges(){
+      var max = catnavEl.scrollWidth - catnavEl.clientWidth;
+      catnavShell.classList.toggle('can-scroll-left', catnavEl.scrollLeft > 2);
+      catnavShell.classList.toggle('can-scroll-right', catnavEl.scrollLeft < max - 2);
+    }
+    catnavEl.addEventListener('scroll', function(){
+      if(edgeTicking) return;
+      edgeTicking = true;
+      requestAnimationFrame(function(){ updateCatnavEdges(); edgeTicking = false; });
+    }, {passive:true});
+    window.addEventListener('resize', updateCatnavEdges);
+    updateCatnavEdges();
+  }
+
   if(catnavLinks.length && menuCats.length && catnavEl && 'IntersectionObserver' in window){
     var catnavMap = {};
     catnavLinks.forEach(function(a){
