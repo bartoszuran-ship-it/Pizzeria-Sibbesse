@@ -300,8 +300,8 @@
   }
   .hero h1{
     margin:0;
-    font-size:clamp(3.3rem,8.2vw,6.6rem);
-    line-height:.92;
+    font-size:clamp(4rem,8.2vw,6.6rem);
+    line-height:1.04;
     color:var(--ink);
   }
   .hero h1 .accent{
@@ -1163,7 +1163,7 @@
     .callbtn svg{width:13px;height:13px;}
 
     .hero{padding-left:1rem;padding-right:1rem;}
-    .hero h1{font-size:clamp(2.8rem,11vw,3.8rem);}
+    .hero h1{font-size:clamp(2.9rem,13.3vw,4rem);}
     .hero-sub{font-size:1rem;}
     .hero-facts{gap:1.1rem 1.8rem;}
 
