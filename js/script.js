@@ -395,7 +395,9 @@
   var catnavWrapEl = document.querySelector('.catnav-wrap');
   function updateHeaderHeight(){
     if(topbarEl){
-      document.documentElement.style.setProperty('--header-h', topbarEl.offsetHeight + 'px');
+      // rect height, not offsetHeight: the rounded-up integer left a sub-pixel
+      // gap under the header that the page flickered through while scrolling
+      document.documentElement.style.setProperty('--header-h', topbarEl.getBoundingClientRect().height + 'px');
     }
     if(catnavWrapEl){
       document.documentElement.style.setProperty('--catnav-h', catnavWrapEl.offsetHeight + 'px');
