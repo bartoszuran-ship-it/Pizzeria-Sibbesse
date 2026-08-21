@@ -396,15 +396,28 @@
     position:absolute;inset:0;z-index:-1;
     background:radial-gradient(50% 55% at 8% 92%, rgba(232,85,31,.12), transparent 65%);
   }
+  /* Krustenkante: feste Bogengroesse statt auf die Breite gestreckter SVG-Pfad
+     — gestreckt wurden daraus auf dem Handy 20 enge, tiefe Zacken.
+     1px Ueberlappung in die Section hinein, damit keine Fuge entsteht. */
   .crust-edge{
-    position:absolute;left:0;width:100%;height:20px;
-    line-height:0;
+    --crust-w:64px;
+    --crust-d:12px;
+    position:absolute;left:0;width:100%;
+    height:calc(var(--crust-d) + 1px);
     pointer-events:none;
     z-index:1;
+    background:var(--bg-1);
+    -webkit-mask-image:radial-gradient(50% var(--crust-d) at 50% 1px, #000 99%, transparent 100%);
+            mask-image:radial-gradient(50% var(--crust-d) at 50% 1px, #000 99%, transparent 100%);
+    -webkit-mask-size:var(--crust-w) 100%;
+            mask-size:var(--crust-w) 100%;
+    -webkit-mask-position:center top;
+            mask-position:center top;
+    -webkit-mask-repeat:repeat-x;
+            mask-repeat:repeat-x;
   }
-  .crust-edge svg{display:block;width:100%;height:100%;}
-  .crust-edge-top{top:-19px;}
-  .crust-edge-bottom{bottom:-19px;transform:scaleY(-1);}
+  .crust-edge-top{top:calc(-1 * var(--crust-d));transform:scaleY(-1);}
+  .crust-edge-bottom{bottom:calc(-1 * var(--crust-d));}
   .section-inner{max-width:1180px;margin:0 auto;}
   .section-head{
     display:flex;align-items:flex-end;justify-content:space-between;
