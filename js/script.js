@@ -351,6 +351,7 @@
     requestAnimationFrame(tick);
   }
   emberField('embers', 22000);
+  emberField('closingEmbers', 16000);
 
   // ---- scroll reveal ----
   var revealEls = document.querySelectorAll('.reveal');
