@@ -386,15 +386,19 @@
     isolation:isolate;
     background:var(--bg-1);
   }
+  /* Der Schein muss auslaufen, bevor er die Ober-/Unterkante der Section
+     erreicht — sonst bricht er an der Kante zur gleichfarbigen Nachbar-
+     section hart ab. Seitlich darf er in den Bildschirmrand laufen, dort
+     ist keine Kante zu sehen. */
   #favoriten::before{
     content:"";
     position:absolute;inset:0;z-index:-1;
-    background:radial-gradient(55% 60% at 90% 8%, rgba(215,162,62,.12), transparent 65%);
+    background:radial-gradient(70% 30% at 84% 32%, rgba(215,162,62,.12), transparent 72%);
   }
   #bewertungen::before{
     content:"";
     position:absolute;inset:0;z-index:-1;
-    background:radial-gradient(50% 55% at 8% 92%, rgba(232,85,31,.12), transparent 65%);
+    background:radial-gradient(70% 30% at 14% 66%, rgba(232,85,31,.12), transparent 72%);
   }
   /* Krustenkante: feste Bogengroesse statt auf die Breite gestreckter SVG-Pfad
      — gestreckt wurden daraus auf dem Handy 20 enge, tiefe Zacken.
