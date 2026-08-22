@@ -1012,33 +1012,50 @@
   @media (prefers-reduced-motion:reduce){
     .rating-trophy-stars .star{opacity:1;transform:none;animation:none;}
   }
-  .reviews-strip{
+  .reviews-marquee{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:1.1rem;
+    height:44rem;
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent);
   }
-  @media (max-width:1080px){.reviews-strip{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:760px){.reviews-strip{grid-template-columns:1fr;}}
+  @media (max-width:760px){.reviews-marquee{height:34rem;gap:.7rem;}}
+  .reviews-col{overflow:hidden;}
+  .reviews-col-track{
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
+    width:100%;
+    will-change:transform;
+  }
+  @media (max-width:760px){.reviews-col-track{gap:.7rem;}}
+  .reviews-col-up .reviews-col-track{animation:reviewsScrollUp 42s linear infinite;}
+  .reviews-col-down .reviews-col-track{animation:reviewsScrollDown 38s linear infinite;}
+  @keyframes reviewsScrollUp{
+    from{transform:translateY(0);}
+    to{transform:translateY(-50%);}
+  }
+  @keyframes reviewsScrollDown{
+    from{transform:translateY(-50%);}
+    to{transform:translateY(0);}
+  }
+  @media (hover:hover) and (pointer:fine){
+    .reviews-col:hover .reviews-col-track{animation-play-state:paused;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reviews-col-track{animation:none;}
+  }
   .review{
     position:relative;
     background:var(--bg-1);
     border:1px solid var(--line);
     border-radius:8px;
     padding:1.6rem;
-    transition:border-color .2s, transform .2s, box-shadow .2s;
+    flex-shrink:0;
   }
-  @media (hover:hover) and (pointer:fine){
-    .review:hover{
-      border-color:var(--bg-2-hover);
-      transform:translateY(-3px);
-      box-shadow:0 16px 32px -18px rgba(0,0,0,.5);
-    }
-  }
-  .review.reveal:nth-child(2){transition-delay:.08s;}
-  .review.reveal:nth-child(3){transition-delay:.16s;}
-  .review.reveal:nth-child(4){transition-delay:.24s;}
-  .review.reveal:nth-child(5){transition-delay:.32s;}
-  .review.reveal:nth-child(6){transition-delay:.4s;}
+  @media (max-width:760px){.review{padding:1.1rem;}}
   .review::before{
     content:"❝";
     position:absolute;
