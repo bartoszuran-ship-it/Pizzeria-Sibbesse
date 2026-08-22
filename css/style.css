@@ -781,7 +781,9 @@
     box-shadow:0 6px 14px -6px rgba(0,0,0,.5);
     transition:color .2s, border-color .2s, background .2s;
   }
-  .dish-fav:hover{color:var(--ember-soft);border-color:var(--ember);}
+  @media (hover:hover) and (pointer:fine){
+    .dish-fav:hover{color:var(--ember-soft);border-color:var(--ember);}
+  }
   .dish-fav svg{width:15px;height:15px;display:block;}
   .dish-fav svg path{fill-opacity:0;transition:fill-opacity .2s;}
   .dish-fav.is-fav{
