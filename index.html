@@ -11,17 +11,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <filter id="heatShimmer" x="-20%" y="-20%" width="140%" height="140%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.09" numOctaves="2" seed="7" result="noise">
-        <animate attributeName="baseFrequency" dur="5s" values="0.012 0.09;0.016 0.11;0.012 0.09" repeatCount="indefinite"/>
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="9"/>
-    </filter>
-  </defs>
-</svg>
-
 <header class="topbar">
   <a href="#top" class="brandmark">
     <picture>
@@ -58,14 +47,14 @@
 
 <div class="fav-toast" id="favToast" role="status" aria-live="polite">
   <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-  <span>Zu Favoriten hinzugefügt</span>
+  <span>Zur Auswahl hinzugefügt</span>
   <button type="button" id="favToastView">Ansehen</button>
 </div>
 
 <div class="fav-tray-scrim" id="favTrayScrim"></div>
 <aside class="fav-tray" id="favTray" aria-hidden="true">
   <div class="fav-tray-header">
-    <h3>Meine Favoriten</h3>
+    <h3>Meine Auswahl</h3>
     <button class="fav-tray-close" id="favTrayClose" type="button" aria-label="Schließen">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
@@ -155,7 +144,7 @@
           <span class="highlight-label"><span class="k">01–38</span><span class="t">Pizza</span></span>
         </a>
         <a class="highlight-card reveal" href="#doener">
-          <img src="assets/images/pizzeria-06.jpeg" alt="Döner mit Pommes und Cola" loading="lazy">
+          <img src="assets/images/pizzeria-06.jpeg" alt="Dönerteller mit Pommes und Salat" loading="lazy">
           <span class="highlight-label"><span class="k">39–47</span><span class="t">Döner</span></span>
         </a>
         <a class="highlight-card reveal" href="#nudeln">
@@ -323,38 +312,75 @@
       <div class="reviews-strip">
         <div class="review reveal">
           <div class="review-head">
-            <span class="review-avatar av-1">JI</span>
+            <span class="review-avatar av-1">CM</span>
             <div class="review-who">
-              <span class="review-name">Joan Ib</span>
-              <span class="review-date">Google, vor einem Monat</span>
+              <span class="review-name">Christian Marx</span>
+              <span class="review-date">Local Guide · 132 Rezensionen</span>
             </div>
           </div>
           <div class="stars">★★★★★</div>
-          <p>"The best ever 🔥"</p>
+          <p>„Ich bin begeistert! Den Inhaber kannte ich schon aus einem anderen Restaurant und hab mich riesig gefreut, als er hier aufgemacht hat. Er weiß, was er tut — das Essen ist unglaublich lecker und das Preis-Leistungs-Verhältnis stimmt einfach. Da wird nicht gespart."</p>
         </div>
         <div class="review reveal">
           <div class="review-head">
-            <span class="review-avatar av-2">RF</span>
+            <span class="review-avatar av-2">CR</span>
             <div class="review-who">
-              <span class="review-name">Raid Friseur</span>
-              <span class="review-date">Google, vor 2 Monaten</span>
+              <span class="review-name">Christopher Rasche</span>
+              <span class="review-date">Local Guide · 35 Rezensionen</span>
             </div>
           </div>
           <div class="stars">★★★★★</div>
-          <p>"Top 10/10 …"</p>
+          <p>„Wir waren heute mit 14 Leuten hier und alle waren rundum zufrieden! Pizza, Döner, Calzone … alles hat super geschmeckt und der Service war richtig freundlich!"</p>
         </div>
         <div class="review reveal">
           <div class="review-head">
-            <span class="review-avatar av-3">AF</span>
+            <span class="review-avatar av-3">A</span>
             <div class="review-who">
-              <span class="review-name">ali fakih</span>
-              <span class="review-date">Google, vor 2 Tagen</span>
+              <span class="review-name">Atokki</span>
+              <span class="review-date">4 Rezensionen</span>
             </div>
           </div>
           <div class="stars">★★★★★</div>
-          <p>"Vegetarian options: Top Rated …"</p>
+          <p>„Die Pizza war richtig gut. Wir haben sie geliefert bekommen und es hat perfekt geklappt, der Fahrer war sehr freundlich. Wir kommen definitiv wieder."</p>
+        </div>
+        <div class="review reveal">
+          <div class="review-head">
+            <span class="review-avatar av-1">IA</span>
+            <div class="review-who">
+              <span class="review-name">Ireen Albrecht</span>
+              <span class="review-date">5 Rezensionen</span>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>„Gebt dem Laden eine Chance. Die Deko ist etwas rustikal, aber das Essen ist wirklich gut. Ich hatte die Nummer 63 — endlich mal genug Brokkoli und nicht nur Fleisch. Sogar der Döner ist knusprig und nicht labbrig wie anderswo."</p>
+        </div>
+        <div class="review reveal">
+          <div class="review-head">
+            <span class="review-avatar av-2">TZ</span>
+            <div class="review-who">
+              <span class="review-name">Theo Ziabari</span>
+              <span class="review-date">vor 3 Monaten</span>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>„Hab Schnitzel bestellt und es war nach nur 15 Minuten da 😄 Richtig lecker — vor allem die Hollandaise-Soße!"</p>
+        </div>
+        <div class="review reveal">
+          <div class="review-head">
+            <span class="review-avatar av-3">TG</span>
+            <div class="review-who">
+              <span class="review-name">Thomas Gehrmann</span>
+              <span class="review-date">3 Rezensionen · 7 Fotos</span>
+            </div>
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>„Heute zum ersten Mal Pizza abgeholt und total begeistert. Geschmack und Belag top, der Rand knusprig aber nicht hart — einfach perfekt. War auch schon in 8 Stücke geschnitten."</p>
         </div>
       </div>
+      <a class="reviews-more" href="https://www.google.com/maps/search/?api=1&amp;query=Pizzeria+Sibbesse+Lange+Halbe+2+31079+Sibbesse" target="_blank" rel="noopener">
+        Alle Bewertungen auf Google ansehen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </section>
 
@@ -484,7 +510,7 @@
     Anrufen
   </a>
   <a href="#speisekarte" class="sticky-cta-order">Jetzt bestellen</a>
-  <button class="sticky-cta-fav" id="stickyFavBtn" type="button" aria-label="Meine Favoriten ansehen" aria-haspopup="true" aria-controls="favTray">
+  <button class="sticky-cta-fav" id="stickyFavBtn" type="button" aria-label="Meine Auswahl ansehen" aria-haspopup="true" aria-controls="favTray">
     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
     <span class="sticky-fav-count" id="stickyFavCount">0</span>
   </button>
