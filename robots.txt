@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pizzeria-sibbesse.vercel.app/sitemap.xml

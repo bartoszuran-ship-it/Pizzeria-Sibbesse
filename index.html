@@ -4,11 +4,63 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pizzeria Sibbesse — Holzofenpizza &amp; Döner in Sibbesse</title>
+<meta name="description" content="Pizzeria Sibbesse: Knusprige Holzofen-Pizza, saftiger Döner, frische Pide &amp; mehr — frisch zubereitet in Sibbesse. Lieferung &amp; Abholung, täglich 12–22 Uhr.">
+<link rel="canonical" href="https://pizzeria-sibbesse.vercel.app/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pizzeria Sibbesse">
+<meta property="og:title" content="Pizzeria Sibbesse — Holzofenpizza &amp; Döner in Sibbesse">
+<meta property="og:description" content="Knusprige Holzofen-Pizza, saftiger Döner, frische Pide &amp; mehr — frisch zubereitet in Sibbesse. Lieferung &amp; Abholung, täglich 12–22 Uhr.">
+<meta property="og:image" content="https://pizzeria-sibbesse.vercel.app/assets/images/pizzeria-17.jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="896">
+<meta property="og:url" content="https://pizzeria-sibbesse.vercel.app/">
+<meta property="og:locale" content="de_DE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pizzeria Sibbesse — Holzofenpizza &amp; Döner in Sibbesse">
+<meta name="twitter:description" content="Knusprige Holzofen-Pizza, saftiger Döner, frische Pide &amp; mehr — frisch zubereitet in Sibbesse. Lieferung &amp; Abholung, täglich 12–22 Uhr.">
+<meta name="twitter:image" content="https://pizzeria-sibbesse.vercel.app/assets/images/pizzeria-17.jpeg">
+
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="shortcut icon" href="assets/favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Pizzeria Sibbesse",
+  "image": "https://pizzeria-sibbesse.vercel.app/assets/images/pizzeria-17.jpeg",
+  "url": "https://pizzeria-sibbesse.vercel.app/",
+  "telephone": "+4950653280109",
+  "servesCuisine": ["Pizza", "Döner", "Italienisch", "Türkisch"],
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lange Halbe 2",
+    "addressLocality": "Sibbesse",
+    "postalCode": "31079",
+    "addressCountry": "DE"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "12:00",
+      "closes": "22:00"
+    }
+  ],
+  "menu": "https://pizzeria-sibbesse.vercel.app/#speisekarte",
+  "acceptsReservations": "False",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.0",
+    "reviewCount": "30"
+  }
+}
+</script>
 </head>
 <body>
 <header class="topbar">
@@ -72,7 +124,10 @@
 <main id="top">
   <section class="hero" aria-label="Willkommen">
     <div class="hero-bg" aria-hidden="true">
-      <img src="assets/images/pizzeria-02.jpeg" alt="" loading="eager">
+      <picture>
+        <source srcset="assets/images/pizzeria-02.webp" type="image/webp">
+        <img src="assets/images/pizzeria-02.jpeg" alt="" loading="eager">
+      </picture>
     </div>
     <canvas id="embers" class="hero-embers" aria-hidden="true"></canvas>
     <div class="hero-inner">
@@ -110,7 +165,10 @@
 
   <section class="signature reveal" aria-label="Unsere Kreation">
     <div class="signature-media wipe-left">
-      <img src="assets/images/pizzeria-17.jpeg" alt="Pizza Sibbesse mit Salami, Schinken, Champignons, Paprika und Peperoni" loading="lazy">
+      <picture>
+        <source srcset="assets/images/pizzeria-17.webp" type="image/webp">
+        <img src="assets/images/pizzeria-17.jpeg" alt="Pizza Sibbesse mit Salami, Schinken, Champignons, Paprika und Peperoni" loading="lazy">
+      </picture>
     </div>
     <div class="signature-copy wipe-right">
       <span class="eyebrow">Unsere Kreation</span>
@@ -140,19 +198,31 @@
       </div>
       <div class="highlights">
         <a class="highlight-card reveal" href="#pizza">
-          <img src="assets/images/pizzeria-05.jpeg" alt="Pizza Margherita von oben" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-05.webp" type="image/webp">
+            <img src="assets/images/pizzeria-05.jpeg" alt="Pizza Margherita von oben" loading="lazy">
+          </picture>
           <span class="highlight-label"><span class="k">01–38</span><span class="t">Pizza</span></span>
         </a>
         <a class="highlight-card reveal" href="#doener">
-          <img src="assets/images/pizzeria-06.jpeg" alt="Dönerteller mit Pommes und Salat" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-06.webp" type="image/webp">
+            <img src="assets/images/pizzeria-06.jpeg" alt="Dönerteller mit Pommes und Salat" loading="lazy">
+          </picture>
           <span class="highlight-label"><span class="k">39–47</span><span class="t">Döner</span></span>
         </a>
         <a class="highlight-card reveal" href="#nudeln">
-          <img src="assets/images/pizzeria-07.jpeg" alt="Spaghetti Bolognese von oben" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-07.webp" type="image/webp">
+            <img src="assets/images/pizzeria-07.jpeg" alt="Spaghetti Bolognese von oben" loading="lazy">
+          </picture>
           <span class="highlight-label"><span class="k">58–63</span><span class="t">Nudeln</span></span>
         </a>
         <a class="highlight-card reveal" href="#salat">
-          <img src="assets/images/pizzeria-08.jpeg" alt="Frischer Salat in Schüsseln" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-08.webp" type="image/webp">
+            <img src="assets/images/pizzeria-08.jpeg" alt="Frischer Salat in Schüsseln" loading="lazy">
+          </picture>
           <span class="highlight-label"><span class="k">48–53</span><span class="t">Salat</span></span>
         </a>
       </div>
@@ -195,7 +265,10 @@
 
       <div class="menu-cat" id="pizza">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-09.jpeg" alt="Wood-fired pizza" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-09.webp" type="image/webp">
+            <img src="assets/images/pizzeria-09.jpeg" alt="Wood-fired pizza" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">01 / 08</span>
             <h3 class="display">Pizza</h3>
@@ -207,7 +280,10 @@
 
       <div class="menu-cat" id="doener">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-18.jpeg" alt="Dönerteller mit Salat und Soße" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-18.webp" type="image/webp">
+            <img src="assets/images/pizzeria-18.jpeg" alt="Dönerteller mit Salat und Soße" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">02 / 08</span>
             <h3 class="display">Döner</h3>
@@ -219,7 +295,10 @@
 
       <div class="menu-cat" id="salat">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-11.jpeg" alt="Frischer Salat" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-11.webp" type="image/webp">
+            <img src="assets/images/pizzeria-11.jpeg" alt="Frischer Salat" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">03 / 08</span>
             <h3 class="display">Salat</h3>
@@ -230,7 +309,10 @@
 
       <div class="menu-cat" id="schnitzel">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-12.jpeg" alt="Knuspriges Schnitzel" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-12.webp" type="image/webp">
+            <img src="assets/images/pizzeria-12.jpeg" alt="Knuspriges Schnitzel" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">04 / 08</span>
             <h3 class="display">Schnitzel</h3>
@@ -242,7 +324,10 @@
 
       <div class="menu-cat" id="nudeln">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-13.jpeg" alt="Spaghetti Bolognese" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-13.webp" type="image/webp">
+            <img src="assets/images/pizzeria-13.jpeg" alt="Spaghetti Bolognese" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">05 / 08</span>
             <h3 class="display">Nudeln</h3>
@@ -254,7 +339,10 @@
 
       <div class="menu-cat" id="beilagen">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-14.jpeg" alt="Pommes mit Dips" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-14.webp" type="image/webp">
+            <img src="assets/images/pizzeria-14.jpeg" alt="Pommes mit Dips" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">06 / 08</span>
             <h3 class="display">Beilagen</h3>
@@ -265,7 +353,10 @@
 
       <div class="menu-cat" id="pide">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-15.jpeg" alt="Pide aus dem Ofen" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-15.webp" type="image/webp">
+            <img src="assets/images/pizzeria-15.jpeg" alt="Pide aus dem Ofen" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">07 / 08</span>
             <h3 class="display">Pide</h3>
@@ -276,7 +367,10 @@
 
       <div class="menu-cat" id="getraenke">
         <div class="cat-banner reveal">
-          <img src="assets/images/pizzeria-16.jpeg" alt="Kalte Getränke" loading="lazy">
+          <picture>
+            <source srcset="assets/images/pizzeria-16.webp" type="image/webp">
+            <img src="assets/images/pizzeria-16.jpeg" alt="Kalte Getränke" loading="lazy">
+          </picture>
           <div class="cat-banner-copy">
             <span class="cat-index">08 / 08</span>
             <h3 class="display">Getränke</h3>
