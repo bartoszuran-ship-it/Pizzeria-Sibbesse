@@ -1222,13 +1222,32 @@
     background:var(--bg-1);
   }
   .foot-inner{max-width:1180px;margin:0 auto;}
+  .allergen-details{margin-bottom:2rem;}
+  .allergen-details summary{
+    margin:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crust);
+    cursor:pointer;list-style:none;display:flex;align-items:center;gap:.4rem;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .allergen-details summary::-webkit-details-marker{display:none;}
+  .allergen-details summary::after{
+    content:"";
+    width:7px;height:7px;
+    border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;
+    transform:rotate(45deg);
+    transition:transform .2s ease;
+    flex-shrink:0;
+  }
+  .allergen-details[open] summary::after{transform:rotate(-135deg);}
   .allergen-legend{
     display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
     gap:.5rem 1.5rem;
     font-size:.76rem;color:var(--ink-faint);
-    margin:1rem 0 2rem;
+    margin-top:1rem;
   }
   .allergen-legend span b{color:var(--ink-dim);}
+  @media (max-width:640px){
+    .allergen-legend{grid-template-columns:repeat(2,1fr);gap:.5rem .8rem;font-size:.72rem;}
+  }
   .foot-bottom{
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
     padding-top:1.6rem;border-top:1px solid var(--line);
