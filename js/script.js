@@ -391,8 +391,23 @@
       extraEl.textContent = ' · ab ' + OPEN_HOUR + ':00 Uhr';
     }
   }
+  // ---- Mittwochs-Hinweis: am Pizza-Tag anders formuliert ----
+  var promoBand = document.querySelector('.promo');
+  var promoTitle = document.getElementById('promoTitle');
+  var promoText = document.getElementById('promoText');
+  function updatePromo(){
+    if(!promoBand || !promoTitle || !promoText) return;
+    var istMittwoch = new Date().getDay() === 3;
+    promoBand.classList.toggle('is-today', istMittwoch);
+    promoTitle.textContent = istMittwoch ? 'Heute ist Pizza-Tag' : 'Mittwoch ist Pizza-Tag';
+    promoText.textContent = istMittwoch
+      ? '2 € Rabatt auf alle großen (28 cm) Pizzen — heute den ganzen Tag, ohne Anmeldung.'
+      : '2 € Rabatt auf alle großen (28 cm) Pizzen — jeden Mittwoch, ohne Anmeldung.';
+  }
+
   updateStatus();
-  setInterval(updateStatus, 60000);
+  updatePromo();
+  setInterval(function(){ updateStatus(); updatePromo(); }, 60000);
 
   // ---- header height (used to position mobile nav panel and category nav) ----
   var topbarEl = document.querySelector('.topbar');

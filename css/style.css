@@ -28,7 +28,7 @@
     --crust-soft:#f0c877;
     --ink:#f9ecdc;
     --ink-dim:#dcc4b4;
-    --ink-faint:#ab8079;
+    --ink-faint:#af867f;
     --shadow:0 20px 50px -20px rgba(0,0,0,.6);
     --radius:2px;
   }
@@ -188,6 +188,39 @@
     .callbtn:hover{background:var(--ember-soft);}
   }
   .navlinks-callbtn-wrap{display:none;}
+
+  /* Merkliste — nur am Desktop; auf dem Handy fuehrt die untere Leiste hinein */
+  .topbar-fav{
+    display:none;
+    position:relative;
+    align-items:center;justify-content:center;
+    width:38px;height:38px;flex-shrink:0;
+    background:transparent;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    color:var(--ink-dim);
+    cursor:pointer;
+    padding:0;
+    transition:color .15s, border-color .15s;
+  }
+  @media (hover:hover) and (pointer:fine){
+    .topbar-fav:hover{color:var(--ember-soft);border-color:var(--ember);}
+  }
+  .topbar-fav.has-favs{color:var(--ink);border-color:var(--ember);}
+  .topbar-fav-count{
+    position:absolute;top:-.4rem;right:-.4rem;
+    display:flex;align-items:center;justify-content:center;
+    min-width:1.15rem;height:1.15rem;
+    padding:0 .25rem;
+    border-radius:100px;
+    background:var(--ember);
+    color:#fff9f2;
+    font-size:.62rem;font-weight:700;line-height:1;
+    opacity:0;transform:scale(.6);
+    transition:opacity .2s, transform .2s;
+  }
+  .topbar-fav.has-favs .topbar-fav-count{opacity:1;transform:scale(1);}
+  @media (min-width:1181px){.topbar-fav{display:inline-flex;}}
 
   /* ---------- hamburger menu toggle ---------- */
   .menu-toggle{
@@ -605,6 +638,10 @@
     max-width:1180px;margin:0 auto;
     display:flex;align-items:center;justify-content:space-between;
     gap:1rem;flex-wrap:wrap;
+  }
+  .promo.is-today{
+    background:linear-gradient(100deg, #ff6a2a 0%, var(--ember) 100%);
+    box-shadow:0 12px 34px -16px rgba(232,85,31,.9);
   }
   .promo-inner .display{font-size:clamp(1.2rem,2.6vw,1.6rem);}
   .promo-inner p{margin:0;font-size:.92rem;opacity:.92;}
@@ -1097,7 +1134,7 @@
   @media (max-width:900px){.info-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:520px){.info-grid{grid-template-columns:1fr;}}
   .info-cell{background:var(--bg-1);padding:1.6rem;}
-  .info-cell h4{
+  .info-cell h3{
     margin:0 0 .7rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--crust);
   }
   .info-cell p{margin:0 0 .3rem;font-size:.92rem;color:var(--ink-dim);}

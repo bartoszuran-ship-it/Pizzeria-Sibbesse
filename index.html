@@ -94,6 +94,10 @@
         </li>
       </ul>
     </nav>
+    <button class="topbar-fav fav-counter-badge" id="favTrayToggle" type="button" aria-label="Meine Auswahl ansehen" aria-haspopup="true" aria-expanded="false" aria-controls="favTray">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      <span class="topbar-fav-count" id="favCounter">0</span>
+    </button>
     <a class="callbtn callbtn-desktop" href="tel:+4950653280109">Jetzt anrufen</a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
       <span></span><span></span><span></span>
@@ -162,8 +166,8 @@
 
   <div class="promo">
     <div class="promo-inner">
-      <div class="display">Mittwoch ist Pizza-Tag</div>
-      <p>2 € Rabatt auf alle großen (28 cm) Pizzen — jeden Mittwoch, ohne Anmeldung.</p>
+      <div class="display" id="promoTitle">Mittwoch ist Pizza-Tag</div>
+      <p id="promoText">2 € Rabatt auf alle großen (28 cm) Pizzen — jeden Mittwoch, ohne Anmeldung.</p>
     </div>
   </div>
 
@@ -617,7 +621,7 @@
                   </div>
                 </div>
                 <div class="stars">★★★★★</div>
-                <p>„Top, 10/10 …"</p>
+                <p>„Top, 10/10"</p>
               </div>
               <div class="review">
                 <div class="review-head">
@@ -684,7 +688,7 @@
                     </div>
                   </div>
                   <div class="stars">★★★★★</div>
-                  <p>„Top, 10/10 …"</p>
+                  <p>„Top, 10/10"</p>
                 </div>
                 <div class="review">
                   <div class="review-head">
@@ -719,43 +723,43 @@
       </div>
       <div class="info-grid">
         <div class="info-cell">
-          <h4>Öffnungszeiten</h4>
+          <h3>Öffnungszeiten</h3>
           <p>Montag – Sonntag</p>
           <p>12:00 – 22:00 Uhr</p>
         </div>
         <div class="info-cell">
-          <h4>Lieferzeiten</h4>
+          <h3>Lieferzeiten</h3>
           <p>Täglich</p>
           <p>12:00 – 21:00 Uhr</p>
         </div>
         <div class="info-cell">
-          <h4>Lieferkosten</h4>
+          <h3>Lieferkosten</h3>
           <p>Innerhalb Sibbesse: 2,00 €</p>
           <p>Außerhalb bis 12 km: 3,50 €</p>
         </div>
         <div class="info-cell">
-          <h4>Mindestbestellwert</h4>
+          <h3>Mindestbestellwert</h3>
           <p>20,00 € (nur Speisen)</p>
           <p>Firmen &amp; Feuerwehr kostenfrei</p>
         </div>
       </div>
       <div class="info-grid" style="margin-bottom:0;">
         <div class="info-cell">
-          <h4>Telefon</h4>
+          <h3>Telefon</h3>
           <a class="tel" href="tel:+4950653280109">05065 / 3280109</a>
         </div>
         <div class="info-cell">
-          <h4>Adresse</h4>
+          <h3>Adresse</h3>
           <p>Lange Halbe 2</p>
           <p>31079 Sibbesse</p>
         </div>
         <div class="info-cell">
-          <h4>Mittwoch-Angebot</h4>
+          <h3>Mittwoch-Angebot</h3>
           <p>2 € Rabatt auf alle</p>
           <p>großen (28 cm) Pizzen</p>
         </div>
         <div class="info-cell">
-          <h4>Bewertung</h4>
+          <h3>Bewertung</h3>
           <p>4,1 / 5 ★ · Google</p>
           <p>35 Rezensionen</p>
         </div>
