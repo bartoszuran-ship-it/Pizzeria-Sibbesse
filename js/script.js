@@ -253,32 +253,35 @@
   var favTrayToggle = document.getElementById('favTrayToggle');
   var favTrayClose = document.getElementById('favTrayClose');
   var stickyFavBtn = document.getElementById('stickyFavBtn');
-  if(favTray && favTrayScrim && favTrayToggle && favTrayClose){
+  // favTrayToggle ist optional — die Merkliste haengt an der Leiste unten
+  // und am Toast, nicht an einem einzelnen Button
+  if(favTray && favTrayScrim && favTrayClose){
+    function setTrayExpanded(on){
+      [favTrayToggle, stickyFavBtn].forEach(function(btn){
+        if(btn) btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+      });
+    }
     function openFavTray(){
       updateFavTray();
       favTray.classList.add('is-open');
       favTrayScrim.classList.add('is-open');
-      favTrayToggle.setAttribute('aria-expanded', 'true');
-      if(stickyFavBtn) stickyFavBtn.setAttribute('aria-expanded', 'true');
+      setTrayExpanded(true);
       favTray.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
     function closeFavTray(){
       favTray.classList.remove('is-open');
       favTrayScrim.classList.remove('is-open');
-      favTrayToggle.setAttribute('aria-expanded', 'false');
-      if(stickyFavBtn) stickyFavBtn.setAttribute('aria-expanded', 'false');
+      setTrayExpanded(false);
       favTray.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
-    favTrayToggle.addEventListener('click', function(){
-      if(favTray.classList.contains('is-open')) closeFavTray(); else openFavTray();
-    });
-    if(stickyFavBtn){
-      stickyFavBtn.addEventListener('click', function(){
+    [favTrayToggle, stickyFavBtn].forEach(function(btn){
+      if(!btn) return;
+      btn.addEventListener('click', function(){
         if(favTray.classList.contains('is-open')) closeFavTray(); else openFavTray();
       });
-    }
+    });
     favTrayClose.addEventListener('click', closeFavTray);
     favTrayScrim.addEventListener('click', closeFavTray);
     var favToastView = document.getElementById('favToastView');
