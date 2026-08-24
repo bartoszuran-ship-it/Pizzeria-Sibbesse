@@ -787,6 +787,12 @@
     overflow-wrap:anywhere;
   }
   .dish-name .num{
+    /* die Nummer ist ein Flex-Element und wuerde sonst schrumpfen; dazu erbt
+       sie das overflow-wrap:anywhere von .dish-name und braeche zwischen den
+       Ziffern um ("54" als 5 / 4) */
+    flex:0 0 auto;
+    white-space:nowrap;
+    overflow-wrap:normal;
     font-family:ui-monospace,monospace;
     font-size:.72rem;
     color:var(--ember-soft);
