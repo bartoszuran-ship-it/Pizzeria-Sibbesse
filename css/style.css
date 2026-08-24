@@ -1321,7 +1321,9 @@
 
     .dish-grid{grid-template-columns:1fr;}
     .highlights{grid-template-columns:repeat(2,1fr);}
-    .highlight-label .t{font-size:1.1rem;}
+    /* untere Grenze, damit das laengste Label ("Dönergerichte") auch auf
+       320px-Geraeten in die halbbreite Kachel passt */
+    .highlight-label .t{font-size:clamp(.95rem,4.4vw,1.1rem);}
 
     .promo-inner{flex-direction:column;align-items:flex-start;gap:.4rem;}
   }
