@@ -1033,17 +1033,6 @@
     flex-shrink:0;
   }
   @media (max-width:760px){.review{padding:1.1rem;}}
-  .review::before{
-    content:"❝";
-    position:absolute;
-    right:1.1rem;top:.4rem;
-    font-family:Georgia,serif;
-    font-size:3rem;
-    line-height:1;
-    color:var(--ember);
-    opacity:.22;
-    pointer-events:none;
-  }
   .review-head{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem;}
   .review-avatar{
     flex-shrink:0;
