@@ -459,7 +459,7 @@
   // ---- hero headline word rotator ----
   var rotator = document.getElementById('heroRotator');
   if(rotator && !reduce){
-    var rotatorWords = ['Holzofen-Pizza', 'Frischer Döner', 'Knusprige Pide'];
+    var rotatorWords = ['Frische Pizza', 'Frischer Döner', 'Knusprige Pide'];
     var rotatorIdx = 0;
     setInterval(function(){
       rotatorIdx = (rotatorIdx + 1) % rotatorWords.length;
