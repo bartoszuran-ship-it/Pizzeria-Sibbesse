@@ -97,7 +97,7 @@
     pide: [
       ["81","Pide mit Döner","Hähnchen- oder Kalbfleisch, Ei, überbacken mit Käse",[["11,00 €",""]],["A","C","G","2","3","10","11","12"]],
       ["82","Pide mit Sucuk","Ei, überbacken mit Käse",[["12,00 €",""]],["A","C","G","1","2","3"]],
-      ["83","Pide mit Thunfisch und Ei","Hähnchen oder Kalb, Ei, überbacken mit Käse",[["12,00 €",""]],["A","C","D","G"]]
+      ["83","Pide mit Thunfisch und Ei","Ei, überbacken mit Käse",[["12,00 €",""]],["A","C","D","G"]]
     ],
     getraenke: [
       ["","Cola, Fanta, Sprite Mezzo Mix","0,33 l",[["2,50 €",""]],[]],
